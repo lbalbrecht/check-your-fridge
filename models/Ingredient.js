@@ -13,6 +13,13 @@ module.exports = function(sequelize, DataTypes){
             validate: {
                 isDate: true
             }
+        },
+        category: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+                len: [1]
+            }
         }
     });
 
