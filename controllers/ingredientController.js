@@ -1,9 +1,10 @@
 const express = require("express");
-const sequelize = require("sequelize");
+// const sequelize = require("sequelize");
 
 const router = express.Router();
 
 const db = require("../models");
+const bcrypt = require("bcrypt");
 
 // route for login page
 

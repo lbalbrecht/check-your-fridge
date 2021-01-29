@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <nav>
+        {{#if user}}
+        <span>Welcome, {{user.username}}!</span>
+        <a href="logout">
+            <button>Logout</button>
+        </a>
+        <a href="/add">
+            <button>New Ingredient</button>
+        </a>
+        {{/if}}
+        {{#unless user}}
+        <a href="/login">
+            <button>Login</button>
+        </a>
+        <a href="/signup">
+            <button>Signup</button>
+        </a>
+        {{/unless}}
+
+    </nav>
+    {{{ body }}}
+
+    
+</body>
+
+</html>
