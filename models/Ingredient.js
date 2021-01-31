@@ -4,7 +4,7 @@ module.exports = function(sequelize, DataTypes) {
             type:DataTypes.STRING,
             allowNull:false
         },
-        date:{
+        expiration:{
             type:DataTypes.DATE,
             allowNull:true,
             validate: {
@@ -20,7 +20,7 @@ module.exports = function(sequelize, DataTypes) {
     Ingredient.associate = function(models) {
         // add associations here
         Ingredient.belongsTo(models.User);
-        // Review.belongsToMany(models.Platform,{through:"ReviewPlatform"})
+        // Ingredient.belongsToMany(models.Category,{through:"IngredientCategory"})
     };
 
     return Ingredient;

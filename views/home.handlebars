@@ -1,0 +1,10 @@
+<h1>Ingredients</h1>
+{{#each ingredients}}
+    <h3>{{name}}</h3>
+    <p>Expiration: {{expiration}}</p>
+    <p>Category: {{category}}</p>
+    {{#if isMine}}
+    <button>Update</button>
+    <button>Delete</button>
+    {{/if}}
+{{/each}} 

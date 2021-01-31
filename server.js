@@ -4,11 +4,11 @@ const session = require('express-session');
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
-require("dotenv").config();
+// require("dotenv").config();
 
 
 // Requiring our models for syncing
-var db = require('./models');
+var db = require("./models");
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -19,9 +19,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        maxAge: 1000*60*60*2
+        maxAge: 1000 * 60 * 60 * 2
     }
-  }))
+}))
 
 // Static directory
 app.use(express.static('public'));
@@ -29,6 +29,11 @@ app.use(express.static('public'));
 var exphbs = require('express-handlebars');
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
+
+// fake home route for testing
+// app.get("/", (req, res) => {
+//     res.send("stuff");
+// });
 
 const userRoutes = require("./controllers/userController");
 app.use(userRoutes);
@@ -39,8 +44,11 @@ app.use(frontEndRoutes);
 const ingredientRoutes = require("./controllers/ingredientController");
 app.use("/api/ingredients",ingredientRoutes);
 
-db.sequelize.sync({ force: false }).then(function() {
-    app.listen(PORT, function() {
-    console.log('App listening on PORT ' + PORT);
+// const categoryRoutes = require("./controllers/categoryController");
+// app.use("/api/category", categoryRoutes);
+
+db.sequelize.sync({ force: true }).then(function () {
+    app.listen(PORT, function () {
+        console.log('App listening on PORT ' + PORT);
     });
 });
