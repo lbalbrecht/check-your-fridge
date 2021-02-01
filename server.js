@@ -1,10 +1,11 @@
-
-// *** Dependencies
-var express = require("express");
-
+var express = require('express');
+const session = require('express-session');
 // Sets up the Express App
+// =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
+// require("dotenv").config();
+
 
 // Requiring our models for syncing
 var db = require("./models");
@@ -13,27 +14,41 @@ var db = require("./models");
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+app.use(session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        maxAge: 1000 * 60 * 60 * 2
+    }
+}))
+
 // Static directory
-app.use(express.static("public"));
+app.use(express.static('public'));
 
-// set up handlebars
-var exphbs = require("express-handlebars");
+var exphbs = require('express-handlebars');
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
-app.engine("handlebars", exphbs({
-  defaultLayout: "main"
-}));
-app.set("view engine", "handlebars");
+// fake home route for testing
+// app.get("/", (req, res) => {
+//     res.send("stuff");
+// });
 
-// Routes
-// require("./routes/api-routes.js")(app);
-// require("./routes/html-routes.js")(app);
-var routes = require("./controllers/ingredients_controller.js");
+const userRoutes = require("./controllers/userController");
+app.use(userRoutes);
 
-app.use(routes);
+const frontEndRoutes = require("./controllers/frontEndController");
+app.use(frontEndRoutes);
 
-// Syncing our sequelize models and then starting our Express app
-db.sequelize.sync({ force: false }).then(function() {
-  app.listen(PORT, function() {
-    console.log("App listening on PORT " + PORT);
-  });
+const ingredientRoutes = require("./controllers/ingredientController");
+app.use("/api/ingredients",ingredientRoutes);
+
+// const categoryRoutes = require("./controllers/categoryController");
+// app.use("/api/category", categoryRoutes);
+
+db.sequelize.sync({ force: true }).then(function () {
+    app.listen(PORT, function () {
+        console.log('App listening on PORT ' + PORT);
+    });
 });
