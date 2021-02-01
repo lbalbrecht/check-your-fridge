@@ -1,1 +1,1 @@
-USE fridgecheck_db;
+CREATE DATABASE fridgecheck_db;
