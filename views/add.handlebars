@@ -1,6 +1,51 @@
-<form id="addIngredient">
+{{!-- <form id="addIngredient">
     <input type="text" name="name" id="name" placeholder="name">
     <input type="text" name="expiration" id="expiration" placeholder="expiration">
     <input type="text" name="category" id="category" placeholder="category">
     <input type="submit" value="Save Ingredient!">
-</form>
+</form> --}}
+
+    <!-- add form -->
+    <div class="row">
+        <form class="col s12">
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="name" type="text">
+                    <label for="name">Ingredient Name</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <input id="expiration" type="text" class="datepicker">
+                    <label for="expiration">Expiration Date</label>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="input-field col s12">
+                    <select>
+                        <option value="" disabled selected>choose a category</option>
+                        <option value="bread & bakery">bread & bakery</option>
+                        <option value="beverages">beverages</option>
+                        <option value="canned goods">canned goods</option>
+                        <option value="condiments & spices">condiments & spices</option>
+                        <option value="dairy">dairy</option>
+                        <option value="frozen foods">frozen foods</option>
+                        <option value="meat & seafood">meat & seafood</option>
+                        <option value="produce">produce</option>
+                        <option value="snacks">snacks</option>
+                        <option value="other">other</option>
+                    </select>
+                    <label>Category</label>
+                </div>
+            </div>
+
+
+            <button class="btn waves-effect waves-light right" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+
+        </form>
+    </div>
