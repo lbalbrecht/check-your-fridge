@@ -10,7 +10,7 @@ router.get("/", (req,res)=>{
         const jsonData = data.map(obj=>{
             const jsonObj = obj.toJSON()
             if(req.session.user){
-                jsonObj.isMine = req.session.user.id===jsonObj.user.id
+                jsonObj.isMine = req.session.user.id===jsonObj.UserId
             } else{
                 jsonObj.isMine = false;
             }

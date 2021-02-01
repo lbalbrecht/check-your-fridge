@@ -84,8 +84,8 @@
     <p>Expiration: {{expiration}}</p>
     <p>Category: {{category}}</p>
     {{#if isMine}}
-    <button>Update</button>
-    <button>Delete</button>
+        <button id="delete" data-id="{{this.id}}">Delete</button>
+        <button id="update">Update</button>
     {{/if}}
     {{/each}}
 </div>
