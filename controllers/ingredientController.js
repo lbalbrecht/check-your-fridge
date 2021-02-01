@@ -56,8 +56,8 @@ router.post("/", (req, res) => {
     } else {
         db.Ingredient.create({
             name: req.body.name,
-            expiration: req.body.date,
-            category: req.body.expiration,
+            expiration: req.body.expiration,
+            category: req.body.category,
             UserId: req.session.user.id
         }).then(data=>{
             res.json(data)
