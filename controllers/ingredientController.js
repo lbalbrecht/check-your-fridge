@@ -68,5 +68,24 @@ router.post("/", (req, res) => {
 
 })
 
+// route to delete
+router.post("/delete/:id", (req, res) => {
+    if (!req.session.user) {
+        res.status(401).send("not logged in")
+    } else {
+        db.Ingredient.destroy({
+            name: req.body.name,
+            expiration: req.body.expiration,
+            category: req.body.category,
+            UserId: req.session.user.id
+        }).then(data=>{
+            res.json(data)
+        }).catch(err => {
+            res.status(500).json(err)
+        })
+    }
+
+})
+
 
 module.exports = router;
