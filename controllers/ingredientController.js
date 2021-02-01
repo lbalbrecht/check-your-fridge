@@ -56,8 +56,8 @@ router.post("/", (req, res) => {
     } else {
         db.Ingredient.create({
             name: req.body.name,
-            expiration: req.body.date,
-            category: req.body.expiration,
+            expiration: req.body.expiration,
+            category: req.body.category,
             UserId: req.session.user.id
         }).then(data=>{
             res.json(data)
@@ -65,6 +65,20 @@ router.post("/", (req, res) => {
             res.status(500).json(err)
         })
     }
+
+})
+
+// route to delete
+router.post("/delete/:id", (req, res) => {
+    db.Ingredient.destroy({
+        where: {
+            id:req.params.id
+        }
+    }).then(data=>{
+        res.json(data)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
 
 })
 
