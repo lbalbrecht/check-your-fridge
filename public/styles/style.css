@@ -1,7 +1,11 @@
-body{
+/* body{
     background-color: #dad;
 }
 
 nav{
     background-color: cornflowerblue;
+} */
+
+.large {
+    font-size: 200%;
 }

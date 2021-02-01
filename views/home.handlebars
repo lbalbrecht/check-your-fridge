@@ -1,10 +1,63 @@
-<h1>Ingredients</h1>
-{{#each ingredients}}
-    <h3>{{name}}</h3>
-    <p>Expiration: {{expiration}}</p>
-    <p>Category: {{category}}</p>
+<!-- list of categories -->
+{{!-- <div class="categories">
+    <!-- handlbars to fill this section out -->
+    <ul>
+        <li>
+            <button class="categoryBtn">all</button>
+        </li>
+        <li>
+            <button class="categoryBtn">bread and bakery</button>
+        </li>
+        <li>
+            <button class="categoryBtn">beverages</button>
+        </li>
+        <li>
+            <button class="categoryBtn">canned goods</button>
+        </li>
+        <li>
+            <button class="categoryBtn">condiments and spices</button>
+        </li>
+        <li>
+            <button class="categoryBtn">dairy</button>
+        </li>
+        <li>
+            <button class="categoryBtn">frozen foods</button>
+        </li>
+        <li>
+            <button class="categoryBtn">meat and seafood</button>
+        </li>
+        <li>
+            <button class="categoryBtn">produce</button>
+        </li>
+        <li>
+            <button class="categoryBtn">snacks</button>
+        </li>
+        <li>
+            <button class="categoryBtn">other</button>
+        </li>
+    </ul>
+</div> --}}
+
+
+
+{{!-- list of ingredients that user added --}}
+<h3>my ingredients</h3>
+<div class="row">
+    {{#each ingredients}}
     {{#if isMine}}
-        <button id="delete" data-id="{{this.id}}">Delete</button>
-        <button id="update">Update</button>
+    <div class="col s12 m4 l2 left">
+        <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+                <span class="card-title">{{name}}</span>
+                <p>Expiration: {{expiration}}</p>
+                <p>Category: {{category}}</p>
+            </div>
+            <div class="card-action">
+                <button class="right btn waves-effect waves-light btn-flat" id="update"><i class="material-icons">create</i></button>
+                <button class="btn waves-effect waves-light btn-flat" id="delete" data-id="{{this.id}}"><i class="material-icons">delete</i></button>
+            </div>
+        </div>
+    </div>
     {{/if}}
-{{/each}} 
+    {{/each}}
+</div>

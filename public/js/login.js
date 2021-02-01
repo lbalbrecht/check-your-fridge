@@ -32,7 +32,7 @@ $("#signup").submit(event => {
     })
 })
 
-$("#addIngredient").submit(event => {
+$("#addIngredient").on("click", event => {
     event.preventDefault();
     $.post("/api/ingredients", {
         name: $("#name").val(),
