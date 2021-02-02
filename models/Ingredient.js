@@ -5,12 +5,8 @@ module.exports = function(sequelize, DataTypes) {
             allowNull:false
         },
         expiration:{
-            type:DataTypes.STRING,
-            allowNull:true,
-            // validate: {
-            //     len: [8],
-            //     msg: "Please enter date in 00/00/00 format"
-            // }
+            type:DataTypes.DATEONLY,
+            allowNull:false
         },
         category:{
             type:DataTypes.STRING,

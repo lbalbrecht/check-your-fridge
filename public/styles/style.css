@@ -1,7 +1,26 @@
 body{
-    background-color: #dad;
+    /* background-color: #00887A; */
+    /* color: white; */
 }
 
 nav{
-    background-color: cornflowerblue;
+    /* color: grey; */
+    /* background-color: #D3E3FC; */
+}
+
+.large {
+    font-size: 200%;
+}
+
+.light-text {
+    color: rgb(218, 218, 218);
+}
+
+.categoryBtn, .all{
+    margin-bottom: 5px;
+    /* background-color: #FFCCBC; */
+}
+
+.card {
+    background-color: rgb(175, 175, 175);
 }
