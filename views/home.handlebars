@@ -1,9 +1,10 @@
 <!-- list of categories -->
+{{#if user}}
 <div class="row">
 
     <div class="col s12 m4 l3 left">
-        <h3 class="center">categories</h3>
-        <div class="catSection categories center">
+        <h3 class="left">Categories</h3>
+        <div class="catSection categories left">
             <!-- handlbars to fill this section out -->
             <ul>
                 <li>
@@ -42,12 +43,16 @@
                 </li>
             </ul>
         </div>
+        <h3 class="left">Search for Recipes</h3>
+        <div class="searchSection left">
+            <button id="search" class="btn waves-effect waves-light">Search</button>
+        </div>
     </div>
 
     <div class="col s12 m8 l9 right">
 
         {{!-- list of ingredients that user added --}}
-        <h3 class="center">my ingredients</h3>
+        <h3 class="center">My Ingredients</h3>
         <div class="row">
             {{#each ingredients}}
             {{#if isMine}}
@@ -75,7 +80,7 @@
     <div class="col s12 right">
 
         {{!-- list of ingredients that user added --}}
-        <h3 class="center">my recipes</h3>
+        <h3 class="center">My Recipes</h3>
         <div class="row">
             {{#each recipes}}
             {{#if isMine}}
@@ -100,3 +105,4 @@
 
     </div>
 </div>
+{{/if}} 
