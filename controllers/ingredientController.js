@@ -33,20 +33,31 @@ router.get("/", (req, res) => {
 // })
 
 // route for user ingredients
-router.get("/myingredients", (req, res)=>{
-    if(!req.session.user){
+router.get("/myingredients", (req, res) => {
+    if (!req.session.user) {
         res.status(401).send("Not logged in")
-    } else{
+    } else {
         db.Ingredient.findAll({
-            where:{
-                UserId:req.session.user.id
+            where: {
+                UserId: req.session.user.id
             }
-        }).then(data=>{
+        }).then(data => {
             res.json(data)
-        }).catch(err=>{
+        }).catch(err => {
             res.status(500).json(err)
         })
     }
+})
+
+router.get("/:id", function(req, res) {
+    db.Ingredient.findOne({
+        where: {
+            id: req.params.id
+        },
+        include: [db.User]
+    }).then(function(dbIngredient) {
+        res.json(dbIngredient)
+    })
 })
 
 // route to add new ingredient
@@ -59,7 +70,7 @@ router.post("/", (req, res) => {
             expiration: req.body.expiration,
             category: req.body.category,
             UserId: req.session.user.id
-        }).then(data=>{
+        }).then(data => {
             res.json(data)
         }).catch(err => {
             res.status(500).json(err)
@@ -72,9 +83,9 @@ router.post("/", (req, res) => {
 router.post("/delete/:id", (req, res) => {
     db.Ingredient.destroy({
         where: {
-            id:req.params.id
+            id: req.params.id
         }
-    }).then(data=>{
+    }).then(data => {
         res.json(data)
     }).catch(err => {
         res.status(500).json(err)
@@ -82,5 +93,24 @@ router.post("/delete/:id", (req, res) => {
 
 })
 
+// route to update
+router.put("/", (req, res) => {
+    db.Ingredient.update({
+        name: req.body.name,
+        expiration: req.body.expiration,
+        category: req.body.category,
+        UserId: req.session.user.id
+    },
+        {
+            where:{
+                id: req.body.id
+            }
+        }
+    ).then(function (dbIngredient) {
+        res.json(dbIngredient)
+    }).catch(err => {
+        res.status(500).json(err)
+    })
+})
 
 module.exports = router;

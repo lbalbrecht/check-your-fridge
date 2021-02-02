@@ -59,6 +59,7 @@ $(".delete").on("click", function(){
     })
 })
 
+
 $("#search").on("click", function(){
     const food = ['blueberry'];
 
