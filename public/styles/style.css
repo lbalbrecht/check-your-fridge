@@ -24,3 +24,9 @@ nav{
 .card {
     background-color: rgb(175, 175, 175);
 }
+
+body{
+    background-image: url("/images/interior-of-refrigerator.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
