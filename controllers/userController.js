@@ -58,7 +58,6 @@ router.get("/membersonly", (req,res)=>{
 
 router.get('/logout',(req,res)=>{
     req.session.destroy();
-    res.send("Logged out")
     res.redirect('/')
 })
 
