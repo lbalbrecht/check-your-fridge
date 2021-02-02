@@ -7,37 +7,38 @@
             <!-- handlbars to fill this section out -->
             <ul>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">all</button>
+                    <button class="btn waves-effect waves-light all">all</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">bread and bakery</button>
+                    <button class="categoryBtn btn waves-effect waves-light bread">bread</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">beverages</button>
+                    <button class="categoryBtn btn waves-effect waves-light beverages">beverages</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">canned goods</button>
+                    <button class="categoryBtn btn waves-effect waves-light canned-goods">canned-goods</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">condiments and spices</button>
+                    <button
+                        class="categoryBtn btn waves-effect waves-light condiments-spices">condiments-spices</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">dairy</button>
+                    <button class="categoryBtn btn waves-effect waves-light dairy">dairy</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">frozen foods</button>
+                    <button class="categoryBtn btn waves-effect waves-light frozen-foods">frozen-foods</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">meat and seafood</button>
+                    <button class="categoryBtn btn waves-effect waves-light meat-seafood">meat-seafood</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">produce</button>
+                    <button class="categoryBtn btn waves-effect waves-light produce">produce</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">snacks</button>
+                    <button class="categoryBtn btn waves-effect waves-light snacks">snacks</button>
                 </li>
                 <li>
-                    <button class="categoryBtn btn waves-effect waves-light">other</button>
+                    <button class="categoryBtn btn waves-effect waves-light other">other</button>
                 </li>
             </ul>
         </div>
@@ -51,7 +52,7 @@
             {{#each ingredients}}
             {{#if isMine}}
             <div class="col s12 m4 l3">
-                <div class="card">
+                <div class="card {{category}}">
                     <div class="card-content white-text">
                         <p class="card-title">{{name}}</p>
                         <p class="light-text">{{category}}</p>
@@ -60,7 +61,35 @@
                     <div class="card-action">
                         <button class=" btn waves-effect waves-light btn-flat" id="update"><i
                                 class="material-icons">create</i></button>
-                        <button class="btn waves-effect waves-light btn-flat" id="delete" data-id="{{this.id}}"><i
+                        <button class="delete btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
+                                class="material-icons">delete</i></button>
+                    </div>
+                </div>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+
+    </div>
+
+    <div class="col s12 right">
+
+        {{!-- list of ingredients that user added --}}
+        <h3 class="center">my recipes</h3>
+        <div class="row">
+            {{#each recipes}}
+            {{#if isMine}}
+            <div class="col s12">
+                <div class="card">
+                    <div class="card-content white-text">
+                        <p class="card-title">{{title}}</p>
+                        <p class="light-text">{{url}}</p>
+                    </div>
+                    <div class="card-action">
+                        <p>{{summary}}</p>
+                        <p>{{instructions}}</p>
+                        <p>{{ingredients}}</p>
+                        <button class="delete btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
                                 class="material-icons">delete</i></button>
                     </div>
                 </div>

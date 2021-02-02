@@ -46,7 +46,7 @@ $("#addIngredient").on("click", event => {
     })
 })
 
-$("#delete").on("click", function(){
+$(".delete").on("click", function(){
     const id = $(this).data("id");
 
     $.post("/api/ingredients/delete/" + id, {
@@ -57,4 +57,21 @@ $("#delete").on("click", function(){
         alert("Something went wrong")
         // console.log(err)
     })
+})
+
+const categories = ["bread", "beverages", "canned-goods", "condiments-spices", "dairy", "frozen-foods", "meat-seafood", "produce", "snacks", "other"]
+
+$(".categoryBtn").on("click", function(){
+    let currentCat = $(this).text()
+
+    for(let i = 0; i<categories.length; i++){
+        if(currentCat !== categories[i]){
+            $(`.${categories[i]}`).attr("style", "display:none")
+        }
+    }
+})
+
+$(".all").on("click", function(){
+    $(".card").attr("style", "display:block")
+    $(".categoryBtn").attr("style", "display:block")
 })
