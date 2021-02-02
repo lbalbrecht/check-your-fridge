@@ -60,7 +60,7 @@ $(".delete").on("click", function(){
 })
 
 $("#search").on("click", function(){
-    const food = [];
+    const food = ['blueberry'];
 
     $.each($("input[name='food']:checked"), function(){
         
@@ -68,13 +68,16 @@ $("#search").on("click", function(){
     });
     const searchIngredients = food.join();
     
-    $.post("/test", {searchIngredients}, function(data) {
+    // $.post("/test", {searchIngredients}, function(data) {
         
-        console.log(data[0].title);
+    //     console.log(data[0].title);
         
-    })
+    // })
+    $("#recipe-title").append("<h1>TEST TEST TEST </h1>")
 
     console.log(food);
+})
+
 const categories = ["bread", "beverages", "canned-goods", "condiments-spices", "dairy", "frozen-foods", "meat-seafood", "produce", "snacks", "other"]
 
 $(".categoryBtn").on("click", function(){
