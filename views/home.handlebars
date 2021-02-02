@@ -53,7 +53,7 @@
 
         {{!-- list of ingredients that user added --}}
         <h3 class="center">My Ingredients</h3>
-        <div class="row">
+        <div class="row ing-container">
             {{#each ingredients}}
             {{#if isMine}}
             <div class="col s12 m4 l3">
@@ -80,29 +80,30 @@
     <div class="col s12 right">
 
         {{!-- list of ingredients that user added --}}
-        <h3 class="center">My Recipes</h3>
+        <h3 class="center">Recipes</h3>
+
         <div class="row">
-            {{#each recipes}}
-            {{#if isMine}}
-            <div class="col s12">
-                <div class="card">
-                    <div class="card-content white-text">
-                        <p class="card-title">{{title}}</p>
-                        <p class="light-text">{{url}}</p>
-                    </div>
+            <div class="col s1"></div>
+            <div class="col s10">
+
+                <div id="recipeCard" class="card">
                     <div class="card-action">
-                        <p>{{summary}}</p>
-                        <p>{{instructions}}</p>
-                        <p>{{ingredients}}</p>
-                        <button class="delete btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
-                                class="material-icons">delete</i></button>
+                        <p id="recipeTitle" class="card-title">Recipe Title</p>
+                        <p id="recipeUrl" class="light-text">URL</p>
+                        <p id="recipeSum"></p>
+                        <p id="recipeInst"></p>
+                        <ul id="ingredientList">
+                            <li class="recipeIngr">Ingredients</li>
+                        </ul>
+                        <button id="save" class="delete btn waves-effect waves-light btn-flat">
+                            <i class="material-icons">save</i></button>
                     </div>
                 </div>
+
             </div>
-            {{/if}}
-            {{/each}}
+            <div class="col s1"></div>
         </div>
 
     </div>
 </div>
-{{/if}} 
+{{/if}}
