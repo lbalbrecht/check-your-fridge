@@ -12,46 +12,53 @@
 
 </head>
 
-<body>
-    <header>
-        <h1 class="center">Check Your Fridge!</h1>
-    </header>
+<body class="parallax">
+    <div class="fixed">
 
-    <nav>
-        {{!-- if user is logged in, this is the navbar --}}
-        {{#if user}}
-        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-        <ul class="left hide-on-med-and-down">
-            <li><a class="large" href="/">home</a></li>
-            <li><a class="large" href="/add">add</a></li>
-            {{!-- <li><a class="large" href="/search">search</a></li> --}}
-            <li><a class="large" href="/recipes">recipes</a></li>
+        <header>
+            <h1 class="center">Check Your Fridge!</h1>
+        </header>
+
+
+        <nav>
+            {{!-- if user is logged in, this is the navbar --}}
+            {{#if user}}
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="left hide-on-med-and-down">
+                <li><a class="large" href="/">home</a></li>
+                <li><a class="large" href="/add">add</a></li>
+                {{!-- <li><a class="large" href="/search">search</a></li> --}}
+                <li><a class="large" href="/recipes">recipes</a></li>
+            </ul>
+            <ul class="right">
+                <li><span class="right">welcome, {{user.username}}!</span></li>
+                <li><a class="large" href="/logout">logout</a></li>
+            </ul>
+            {{/if}}
+
+            {{!-- if user is not logged in, this is the navbar --}}
+            {{#unless user}}
+            <ul class="right">
+                <li><a class="large" href="/login">login</a></li>
+                <li><a class="large" href="/signup">signup</a></li>
+            </ul>
+            {{/unless}}
+
+
+            <!-- navbar at top of screen -->
+        </nav>
+    </div>
+
+    <div>
+        <!-- when screen gets to be tablet size or below, this navbar will show on side -->
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/">home</a></li>
+            <li><a href="/add">add</a></li>
+            <li><a href="/search">search</a></li>
+            <li><a href="/recipes">recipes</a></li>
         </ul>
-        <ul class="right">
-            <li><span class="right">welcome, {{user.username}}!</span></li>
-            <li><a class="large" href="/logout">logout</a></li>
-        </ul>
-        {{/if}}
+    </div>
 
-        {{!-- if user is not logged in, this is the navbar --}}
-        {{#unless user}}
-        <ul class="right">
-            <li><a class="large" href="/login">login</a></li>
-            <li><a class="large" href="/signup">signup</a></li>
-        </ul>
-        {{/unless}}
-
-
-        <!-- navbar at top of screen -->
-    </nav>
-
-    <!-- when screen gets to be tablet size or below, this navbar will show on side -->
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="/">home</a></li>
-        <li><a href="/add">add</a></li>
-        <li><a href="/search">search</a></li>
-        <li><a href="/recipes">recipes</a></li>
-    </ul>
 
     {{{ body }}}
 
