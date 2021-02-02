@@ -1,9 +1,12 @@
 <h1>Ingredients</h1>
+
 {{#each ingredients}}
     <h3>{{name}}</h3>
     <p>Expiration: {{expiration}}</p>
     <p>Category: {{category}}</p>
     {{#if isMine}}
+        <input type="checkbox" id={{this.id}} name='food' value={{name}} checked>
+        <label for={{name}}> {{name}} </label>
         <button id="delete" data-id="{{this.id}}">Delete</button>
         <button id="update">Update</button>
     {{/if}}
