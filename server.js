@@ -44,6 +44,8 @@ app.use(frontEndRoutes);
 const ingredientRoutes = require("./controllers/ingredientController");
 app.use("/api/ingredients",ingredientRoutes);
 
+const spoonacularRoutes = require("./controllers/spoonacularController");
+app.use("/test",spoonacularRoutes);
 // const categoryRoutes = require("./controllers/categoryController");
 // app.use("/api/category", categoryRoutes);
 

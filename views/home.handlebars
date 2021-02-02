@@ -1,7 +1,9 @@
-<h1>Ingredients</h1>
 
+<h1>Ingredients</h1>
+<button id="search">Search</button>
+<br>
+<br>
 {{#each ingredients}}
-    <h3>{{name}}</h3>
     <p>Expiration: {{expiration}}</p>
     <p>Category: {{category}}</p>
     {{#if isMine}}
@@ -9,5 +11,7 @@
         <label for={{name}}> {{name}} </label>
         <button id="delete" data-id="{{this.id}}">Delete</button>
         <button id="update">Update</button>
+        <br>
+        <br>
     {{/if}}
 {{/each}} 

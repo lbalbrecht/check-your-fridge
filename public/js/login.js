@@ -58,3 +58,21 @@ $("#delete").on("click", function(){
         // console.log(err)
     })
 })
+
+$("#search").on("click", function(){
+    const food = [];
+
+    $.each($("input[name='food']:checked"), function(){
+        
+        food.push($(this).val());
+    });
+    const searchIngredients = food.join();
+    
+    $.post("/test", {searchIngredients}, function(data) {
+        
+        console.log(data[0].title);
+        
+    })
+
+    console.log(food);
+})
