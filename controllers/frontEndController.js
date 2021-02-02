@@ -43,6 +43,7 @@ router.get('/add',(req,res)=>{
     if(!req.session.user){
         res.redirect('/login')
     } else{
+        
         // res.render("add")
         res.render('add',{
             user:req.session.user
