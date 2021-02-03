@@ -5,7 +5,7 @@ const db = require("../models");
 // route for home page
 router.get("/", (req,res)=>{
     db.Ingredient.findAll({
-        incldue: [db.User]
+        include: [db.User]
     }).then(data=>{
         const jsonData = data.map(obj=>{
             const jsonObj = obj.toJSON()
@@ -49,6 +49,29 @@ router.get('/add',(req,res)=>{
             user:req.session.user
         })
     }
+})
+
+
+router.get("/recipes", (req,res)=>{
+    db.Recipe.findAll({
+        include: [db.User]
+    }).then(data=>{
+        const jsonData = data.map(obj=>{
+            const jsonObj = obj.toJSON()
+            if(req.session.user){
+                jsonObj.isMine = req.session.user.id===jsonObj.UserId
+            } else{
+                jsonObj.isMine = false;
+            }
+            return jsonObj
+        })
+        const hbsObj = {
+            recipes:jsonData,
+            user:req.session.user
+        }
+        console.log(jsonData)
+        res.render("recipes", hbsObj)
+    })
 })
 
 module.exports = router;
