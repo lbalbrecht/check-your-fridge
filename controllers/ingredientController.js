@@ -11,7 +11,9 @@ const db = require("../models");
 // route for all ingredients
 router.get("/", (req, res) => {
     // res.send("All ingredients")
-    db.Ingredient.findAll().then(data => {
+    db.Ingredient.findAll({
+        order: ["expiration", "DESC"]
+    }).then(data => {
         res.json(data)
     }).catch(err => {
         res.status(500).json(err)
@@ -33,21 +35,21 @@ router.get("/", (req, res) => {
 // })
 
 // route for user ingredients
-router.get("/myingredients", (req, res) => {
-    if (!req.session.user) {
-        res.status(401).send("Not logged in")
-    } else {
-        db.Ingredient.findAll({
-            where: {
-                UserId: req.session.user.id
-            }
-        }).then(data => {
-            res.json(data)
-        }).catch(err => {
-            res.status(500).json(err)
-        })
-    }
-})
+// router.get("/myingredients", (req, res) => {
+//     if (!req.session.user) {
+//         res.status(401).send("Not logged in")
+//     } else {
+//         db.Ingredient.findAll({
+//             where: {
+//                 UserId: req.session.user.id
+//             }
+//         }).then(data => {
+//             res.json(data)
+//         }).catch(err => {
+//             res.status(500).json(err)
+//         })
+//     }
+// })
 
 router.get("/:id", function(req, res) {
     db.Ingredient.findOne({

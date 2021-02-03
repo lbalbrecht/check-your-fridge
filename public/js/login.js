@@ -1,5 +1,9 @@
 
 $(document).ready(function () {
+    // materialize methods
+    $('.datepicker').datepicker();
+    $('select').formSelect();
+    $('.sidenav').sidenav();
 
     let url = window.location.search
     // alert("Hello!")
@@ -8,8 +12,8 @@ $(document).ready(function () {
     $("#login").submit(event => {
         event.preventDefault();
         $.post("/login", {
-            username: $("#username").val(),
-            password: $("#password").val(),
+            username: $("#username").val().trim(),
+            password: $("#password").val().trim(),
         }).then(data => {
             console.log("Logged in!")
             window.location.href = "/"
@@ -24,8 +28,8 @@ $(document).ready(function () {
     $("#signup").submit(event => {
         event.preventDefault();
         $.post("/signup", {
-            username: $("#username").val(),
-            password: $("#password").val(),
+            username: $("#username").val().trim(),
+            password: $("#password").val().trim(),
         }).then(data => {
             console.log("Signed up!")
             window.location.href = "/"
@@ -171,12 +175,12 @@ $(document).ready(function () {
     let ingredientId;
 
 
-        if (url.indexOf("?ingredient_id=") !== -1) {
-            ingredientId = url.split("=")[1];
-            console.log(ingredientId)
-            getIngredientData(ingredientId)
-        }
-    
+    if (url.indexOf("?ingredient_id=") !== -1) {
+        ingredientId = url.split("=")[1];
+        console.log(ingredientId)
+        getIngredientData(ingredientId)
+    }
+
 
     function getIngredientData(id) {
         let queryUrl = "/api/ingredients/" + id;

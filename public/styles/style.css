@@ -1,68 +1,143 @@
-nav{
-    background-color: rgb(124, 196, 8);
-}
-.large {
-    font-size: 200%;
-}
-
-.light-text {
-    color: rgb(218, 218, 218);
-}
-
-.btn{
-    background-color: #f1815e;
-}
-
-.categoryBtn, .all{
-    margin-bottom: 5px;
-}
-
-.card {
-    background-color: rgb(175, 175, 175);
-}
-
-/* body{
-    background-image: url("/images/interior-of-refrigerator.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-} */
-
+/* general styling */
 .parallax {
-    /* The image used */
     background-image: url("/images/interior-of-refrigerator.jpg");
-  
-    /* Set a specific height */
     height: 500px;
-  
-    /* Create the parallax scrolling effect */
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 }
 
-h3{
-    background-color: rgb(255, 255, 255);
-    background-image: url("/images/texture.png");
-    border-radius: 5px;
-    box-shadow: 2px 3px rgba(62, 0, 90, 0.651);
-    padding: 2%;
+h1, h3, h4, .letter{
+    font-family: 'Rubik Mono One', sans-serif;
 }
 
-/* .h3{
-    box-shadow: 5px 5px rgb(62, 0, 90);
-} */
+h3, h4, .groceries{
+    background-color: rgb(255, 255, 255);
+    background-image: url("/images/texture.png");
+    width: 100vw;
+}
 
 header{
     background-image: url("/images/texture.png");
     padding-top: 1%;
     padding-bottom: 1%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
 }
 
-/* 
-.fixed{
-    width: 100vw;
-    position: fixed;
-    z-index: 1;
-} */
+.letter{
+    font-size: 3.7rem;
+    text-shadow: 2px 2px rgb(73, 73, 73);
+}
 
+nav{
+    background-color: rgb(124, 196, 8);
+    width: 100vw;
+}
+
+.large {
+    font-size: 175%;
+}
+
+.light-text{
+    color: rgb(218, 218, 218);
+}
+
+.btn-flat{
+    background-color: #9f58c2;
+    font-size: 13px;
+}
+
+
+/* ingredient & recipe display layout */
+.groceries{
+    margin-top: 20%;
+    margin-bottom: 20%;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+.catSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.categoryBtn, .all, #search{
+    background: none;
+    color: #9f58c2;
+    font-weight: bold;
+}
+
+.card {
+    border-radius: 5px;
+    border: 3px solid #9f58c2;
+    background-color: #eee;
+    /* background-image: url("/images/texture.png"); */
+}
+
+.btn-card{
+    display: flex;
+    justify-content: space-around;
+}
+
+.update, .delete{
+    /* background-color: rgb(124, 196, 8); */
+    background: none;
+}
+
+#recBtn{
+    padding-bottom: 2%;
+}
+
+#recipeCard, .purple{
+    color: white;
+}
+
+
+
+
+
+
+/* login and sign up forms */
+#login, #signup{
+    background-color: #eee;
+    padding: 3%;
+    margin-top: 10%;
+    border-radius: 3px;
+    box-shadow: 2px 2px rgba(90, 90, 90, 0.568);
+}
+
+
+
+
+
+/* ingredient form */
+#adding{
+    background-color: #eee;
+    border-radius: 3px;
+    box-shadow: 2px 2px rgba(90, 90, 90, 0.568);
+    padding: 2%;
+    margin-top: 2%;
+}
+
+
+
+
+
+footer{
+    background-color: rgb(124, 196, 8);
+    width: 100vw;
+    padding: 2%;
+    color: white;
+}
+
+#login-foot, #signup-foot{
+    bottom: 0;
+    right: 0;
+    position: fixed;
+}
