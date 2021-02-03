@@ -25,15 +25,17 @@ header{
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100vw;
 }
 
 .letter{
-    font-size: 4rem;
+    font-size: 3.7rem;
     text-shadow: 2px 2px rgb(73, 73, 73);
 }
 
 nav{
     background-color: rgb(124, 196, 8);
+    width: 100vw;
 }
 
 .large {
@@ -52,8 +54,8 @@ nav{
 
 /* ingredient & recipe display layout */
 .groceries{
-    margin-top: 10%;
-    margin-bottom: 30%;
+    margin-top: 20%;
+    margin-bottom: 20%;
     padding-bottom: 5%;
     padding-top: 2%;
 }
@@ -65,8 +67,17 @@ nav{
     justify-content: space-evenly;
 }
 
+.categoryBtn, .all, #search{
+    background: none;
+    color: #9f58c2;
+    font-weight: bold;
+}
+
 .card {
     border-radius: 5px;
+    border: 3px solid #9f58c2;
+    background-color: #eee;
+    /* background-image: url("/images/texture.png"); */
 }
 
 .btn-card{
@@ -75,7 +86,8 @@ nav{
 }
 
 .update, .delete{
-    background-color: rgb(124, 196, 8);
+    /* background-color: rgb(124, 196, 8); */
+    background: none;
 }
 
 #recBtn{
