@@ -4,7 +4,7 @@ const session = require('express-session');
 // =============================================================
 var app = express();
 var PORT = process.env.PORT || 8080;
-// require("dotenv").config();
+require("dotenv").config();
 
 
 // Requiring our models for syncing
@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.use(session({
-    secret: "keyboard cat",
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
