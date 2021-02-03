@@ -11,8 +11,8 @@ $(document).ready(function () {
     $("#login").submit(event => {
         event.preventDefault();
         $.post("/login", {
-            username: $("#username").val(),
-            password: $("#password").val(),
+            username: $("#username").val().trim(),
+            password: $("#password").val().trim(),
         }).then(data => {
             console.log("Logged in!")
             window.location.href = "/"
@@ -27,8 +27,8 @@ $(document).ready(function () {
     $("#signup").submit(event => {
         event.preventDefault();
         $.post("/signup", {
-            username: $("#username").val(),
-            password: $("#password").val(),
+            username: $("#username").val().trim(),
+            password: $("#password").val().trim(),
         }).then(data => {
             console.log("Signed up!")
             window.location.href = "/"

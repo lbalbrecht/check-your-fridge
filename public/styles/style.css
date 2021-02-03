@@ -95,3 +95,9 @@ header{
 #recipeCard{
     color: white;
 }
+
+.catSection{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}

@@ -1,14 +1,8 @@
 <!-- list of categories -->
 {{#if user}}
 <div class="row">
-
-    <div class="col s12 m4 l3">
-        <br>
-        <br>
-        <br>
-        {{!-- <h3 class="left">Categories</h3> --}}
-        <div class="catSection categories">
-            <!-- handlbars to fill this section out -->
+    <div class="col s12 catSection categories container">
+        {{!-- <div class="catSection categories"> --}}
             <ul>
                 <li>
                     <button class="btn waves-effect waves-light all center">all</button>
@@ -45,12 +39,22 @@
                     <button class="categoryBtn btn waves-effect waves-light other">other</button>
                 </li>
             </ul>
-        </div>
+        {{!-- </div> --}}
+    </div>
+</div>
+<div class="row">
+
+    {{!-- <div class="col s12 m4 l3"> --}}
+        {{!-- <br> --}}
+        {{!-- <br> --}}
+        {{!-- <br> --}}
+        {{!-- <h3 class="left">Categories</h3> --}}
+
         {{!-- <h3 class="left">Search for Recipes</h3>
         <div class="searchSection left">
             <button id="search" class="btn waves-effect waves-light">Search</button>
         </div> --}}
-    </div>
+    {{!-- </div> --}}
 
     <div class="col s12 m8 l9 right">
 
