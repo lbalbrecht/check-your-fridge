@@ -12,6 +12,10 @@ h1, h3, h4, .letter{
     font-family: 'Rubik Mono One', sans-serif;
 }
 
+h5{
+    text-decoration: underline;
+}
+
 h3, h4, .groceries{
     background-color: rgb(255, 255, 255);
     background-image: url("/images/texture.png");
@@ -68,13 +72,13 @@ nav{
     justify-content: space-evenly;
 }
 
-.categoryBtn, .all, #search, .waves-effect, .waves-light{
+.categoryBtn, .all, #search, .waves-effect, .waves-light, .recipeButton{
     background: none;
     color: #9f58c2;
     font-weight: bold;
 }
 
-.categoryBtn:hover, #search:hover, .material-icons:hover, .update:hover, .delete:hover, #submitIngr:hover, .modal-overlay{
+.categoryBtn:hover, #search:hover, .material-icons:hover, .update:hover, .delete:hover, #submitIngr:hover, .modal-overlay, .deleteRecipe:hover{
     background-color: rgb(124, 196, 8);
 }
 
@@ -136,6 +140,14 @@ nav{
 
 option{
     color: #9f58c2;
+}
+
+
+
+/* recipe page styling */
+.card-reveal{
+    background-color: #eee;
+    color: rgb(39, 39, 39);
 }
 
 
