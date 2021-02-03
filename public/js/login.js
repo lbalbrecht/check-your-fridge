@@ -44,7 +44,7 @@ $(document).ready(function () {
             expiration: $("#expiration").val(),
             category: $("#category").val(),
         }
-
+        console.log(newIngredient);
         if (updating) {
             newIngredient.id = ingredientId;
             // updatePost(newIngredient)
@@ -69,6 +69,73 @@ $(document).ready(function () {
             })
         }
     })
+
+    $("#recipe-area").on("click", ".recipeButton", function(){
+        console.log(document.activeElement.id);
+        // console.log("test");
+        // console.log($("#recipeTitle0").text())
+        let newRecipe = {
+            title: $(`#recipeTitle${document.activeElement.id}`).text(),
+            url: $(`#recipeUrl${document.activeElement.id}`).text(),
+            summary: $(`#recipeSum${document.activeElement.id}`).text(),
+            instructions: $(`#recipeInst${document.activeElement.id}`).text(),
+            ingredients: $(`#recipeInst${document.activeElement.id}`).text(),
+            userId: $(`#recipeTitle${document.activeElement.id}`).text()
+        }
+        console.log(newRecipe);
+
+        if (updating) {
+            newRecipe.id = recipeId;
+            // updatePost(newIngredient)
+            $.ajax({
+                method: "PUT",
+                url: "/api/recipes",
+                data: newRecipe
+            }).then(function () {
+                window.location.href = "/"
+            }).fail(err => {
+                alert("Something went wrong")
+            })
+        }
+
+        else {
+
+            $.post("/api/recipes", newRecipe).then(data => {
+                window.location.href = "/"
+            }).fail(err => {
+                alert("Something went wrong")
+                // console.log(err)
+            })
+        }
+    })
+
+
+    // $(".recipeButton").on("click", event => {
+    //     event.preventDefault();
+    //     console.log(document.activeElement.id);
+    //     console.log("test");
+    //     let newRecipe = {
+    //         title: $("#name").val(),
+    //         url: $("#expiration").val(),
+    //         summary: $("#category").val(),
+    //         instructions:
+    //         userId:
+    //     }
+
+    //     if (updating) {
+    //         newRecipe.id = RecipeId;
+    //         // updatePost(newRecipe)
+    //         $.ajax({
+    //             method: "PUT",
+    //             url: "/api/recipes",
+    //             data: newRecipe
+    //         }).then(function () {
+    //             window.location.href = "/"
+    //         }).fail(err => {
+    //             alert("Something went wrong")
+    //         })
+    //     }
+    // })
 
     $(".delete").on("click", function () {
         const id = $(this).data("id");
@@ -145,7 +212,7 @@ $(document).ready(function () {
         // })
     })
 
-})
+
 
 $("#search").on("click", function(){
     const food = ['blueberry'];
@@ -156,7 +223,7 @@ $("#search").on("click", function(){
     });
     const searchIngredients = food.join();
     
-    $.post("/test", {searchIngredients}, function(data) {
+    $.post("/api/spoonacular", {searchIngredients}, function(data) {
         
         // console.log(data[0]);
         
@@ -178,34 +245,37 @@ function createCard({data}){
             let ingredientString = ingredientArray[i].originalString
             ingredients.push(ingredientString)
         }
-        
+        ingredients = ingredients.join();
         console.log(ingredients)
         let saveButton = $('<input/>').attr({
             type: "button",
-            id: `saveButton${i}`
+            class: "recipeButton",
+            id: `${i}`
         });
 
         let recipeCard = $("<div/>", {class: "card", "id": `recipeCard${i}`})
         let divRecipe = $("<div/>", {class: "card-action", "id": `recipeDiv${i}`});
-        let ingredientList = $("<ul/>", {id:`ingredientList${i}`})
+
         let recipeTitle = $("<p/>", {class: "card-title", "id": `recipeTitle${i}`});
         recipeTitle.text(data[i].title);
         let recipeUrl = $("<p/>", {id: `recipeUrl${i}`})
-        recipeUrl.append(`<a href="${data[i].sourceUrl}>${data[i].sourceUrl}</a>`)
+        recipeUrl.append(data[i].sourceUrl)
         let recipeSum = $("<p/>", {id:`recipeSum${i}`})
         recipeSum.append(data[i].summary)
         let recipeInst = $("<p/>", {id:`recipeInst${i}`})
         recipeInst.append(data[i].instructions)
+        let ingredientList = $("<p/>", {id:`ingredientList${i}`})
+        ingredientList.append(ingredients)
         $('#recipe-area').append(recipeCard)
         $(`#recipeCard${i}`).append(divRecipe);
 
         $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, recipeSum, recipeInst, ingredientList, saveButton)   
-        for (let i = 0; i < ingredients.length; i++) {
-            console.log("inside for loop" + ingredients)
-            let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})
-            recipeIngr.text(ingredients[i])
-            $(`#ingredientList${trackedNumber}`).append(recipeIngr)
-        } 
+        // for (let i = 0; i < ingredients.length; i++) {
+        //     console.log("inside for loop" + ingredients)
+        //     let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})
+        //     recipeIngr.text(ingredients[i])
+        //     $(`#ingredientList${trackedNumber}`).append(recipeIngr)
+        // } 
         $(`#recipeCard`).append(saveButton);
     }
 }
@@ -218,3 +288,5 @@ function createIngredient({data}){
         console.log(ingredientArray[i].originalString)
     }
 }
+
+})

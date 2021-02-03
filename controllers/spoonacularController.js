@@ -6,7 +6,6 @@ const router = express.Router();
 let listRecipes = [];
 
 router.post("/", (req, res) => {
-  console.log(req.body);
   findRecipe(req.body.searchIngredients, res)
 
 })
@@ -34,7 +33,6 @@ router.post("/", (req, res) => {
 
 // findRecipe(ingredient);
 function findRecipe(listOfIngredients, res) {
-  console.log(`inside find recipe function ${listOfIngredients}`);
   var options = {
     method: 'GET',
     url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients',
