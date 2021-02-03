@@ -5,7 +5,6 @@ $(document).ready(function () {
     $('select').formSelect();
     $('.sidenav').sidenav();
     let url = window.location.search
-    // alert("Hello!")
 
     // when login button is clicked
     $("#login").submit(event => {
@@ -129,18 +128,22 @@ $(document).ready(function () {
     const categories = ["bread", "beverages", "canned-goods", "condiments-spices", "dairy", "frozen-foods", "meat-seafood", "produce", "snacks", "other"]
 
     $(".categoryBtn").on("click", function () {
-        let currentCat = $(this).text()
+        let currentCategory = $(this).text()
+        console.log(currentCategory)
+        if (currentCategory === "all") {
+            for (var i = 0; i < categories.length; i++) {
+                $(`.${categories[i]}`).attr("style", "display:block")
+            }
+        } else {
+            for (var i = 0; i < categories.length; i++) {
+                if (currentCategory === categories[i]) {
+                    $(`.${categories[i]}`).attr("style", "display:block")
+                } else {
+                    $(`.${categories[i]}`).attr("style", "display:none")
 
-        for (let i = 0; i < categories.length; i++) {
-            if (currentCat !== categories[i]) {
-                $(`.${categories[i]}`).attr("style", "display:none")
+                }
             }
         }
-    })
-
-    $(".all").on("click", function () {
-        $(".card").attr("style", "display:block")
-        $(".categoryBtn").attr("style", "display:block")
     })
 
     let updating = false;
@@ -178,14 +181,6 @@ $(document).ready(function () {
 
         window.location.href = "/add?ingredient_id=" + id;
 
-        // $.ajax({
-        //     url: "/api/ingredients/" + id,
-        //     method: "GET"
-        // }).then(res=> {
-        //     $("#name").val(res.name)
-        //     $("#expiration").val(res.expiration)
-        //     $("#category").val(res.category)
-        // })
     })
 
 

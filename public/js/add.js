@@ -3,5 +3,4 @@
 //   $('.datepicker').datepicker();
 //   $('select').formSelect();
 //   $('.sidenav').sidenav();
-
 // });
