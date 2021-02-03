@@ -229,7 +229,7 @@ $(document).ready(function () {
 
             let recipeTitle = $("<p/>", { class: "card-title", "id": `recipeTitle${i}` });
             recipeTitle.text(data[i].title);
-            let recipeUrl = $("<p/>", { id: `recipeUrl${i}` })
+            let recipeUrl = $("<a/>", { href: `${i}`, id: `recipeUrl${i}` })
             recipeUrl.append(data[i].sourceUrl)
             let recipeSum = $("<p/>", { id: `recipeSum${i}` })
             recipeSum.append(data[i].summary)
@@ -240,7 +240,7 @@ $(document).ready(function () {
             $('#recipe-area').append(recipeCard)
             $(`#recipeCard${i}`).append(divRecipe);
 
-            $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, recipeSum, recipeInst, ingredientList, saveButton)
+            $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, recipeSum, ingredientList, recipeInst, saveButton)
             // for (let i = 0; i < ingredients.length; i++) {
             //     console.log("inside for loop" + ingredients)
             //     let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})
