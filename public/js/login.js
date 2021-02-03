@@ -111,7 +111,7 @@ $(document).ready(function () {
         // }
     })
 
-
+    //delete button for ingredients
     $(".delete").on("click", function () {
         const id = $(this).data("id");
         console.log(id)
@@ -119,6 +119,20 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(data => {
             window.location.href = "/"
+        }).fail(err => {
+            alert("Something went wrong")
+            // console.log(err)
+        })
+    })
+
+    //delete button for recipe
+    $(".deleteRecipe").on("click", function () {
+        const id = $(this).data("id");
+        console.log(id)
+        $.post("/api/recipes/delete/" + id, {
+            type: "DELETE"
+        }).then(data => {
+            window.location.href = "/recipes"
         }).fail(err => {
             alert("Something went wrong")
             // console.log(err)
