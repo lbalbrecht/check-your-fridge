@@ -1,73 +1,73 @@
 <!-- list of categories -->
 {{#if user}}
-<div class="row">
 
-    <div class="col s12 m4 l3 left">
-        <h3 class="left">Categories</h3>
-        <div class="catSection categories left">
-            <!-- handlbars to fill this section out -->
-            <ul>
-                <li>
-                    <button class="btn waves-effect waves-light all">all</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light bread">bread</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light beverages">beverages</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light canned-goods">canned-goods</button>
-                </li>
-                <li>
-                    <button
-                        class="categoryBtn btn waves-effect waves-light condiments-spices">condiments-spices</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light dairy">dairy</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light frozen-foods">frozen-foods</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light meat-seafood">meat-seafood</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light produce">produce</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light snacks">snacks</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light other">other</button>
-                </li>
-            </ul>
-        </div>
-        <h3 class="left">Search for Recipes</h3>
-        <div class="searchSection left">
-            <button id="search" class="btn waves-effect waves-light">Search</button>
+<div class="row groceries center">
+
+    <div class="col s12 right">
+        {{!-- list of ingredients that user added --}}
+        <div class="row">
+            <span class="letter" style="color:#FF0000">M</span>
+            <span class="letter" style="color:#228B22">Y</span>
+            <span class="letter" style="color:#9932CC">-</span>
+            <span class="letter" style="color:#FFFF00">G</span>
+            <span class="letter" style="color:#FFA500">R</span>
+            <span class="letter" style="color:#00BFFF">O</span>
+            <span class="letter" style="color:#FF0000">C</span>
+            <span class="letter" style="color:#228B22">E</span>
+            <span class="letter" style="color:#FFA500">R</span>
+            <span class="letter" style="color:#FF0000">I</span>
+            <span class="letter" style="color:#9932CC">E</span>
+            <span class="letter" style="color:#00BFFF">S</span>
         </div>
     </div>
 
-    <div class="col s12 m8 l9 right">
-
-        {{!-- list of ingredients that user added --}}
-        <h3 class="center">My Ingredients</h3>
+    <div class="container center">
+        <div class="row">
+            <div class="col s12 container center">
+                <div class="catSection categories center">
+                    <button class="CategoryBtn waves-effect waves-light btn all center">all</button>
+                    <button class="categoryBtn btn waves-effect waves-light bread">bread</button>
+                    <button class="categoryBtn btn waves-effect waves-light beverages">beverages</button>
+                    <button class="categoryBtn btn waves-effect waves-light canned-goods">canned-goods</button>
+                    <button
+                        class="categoryBtn btn waves-effect waves-light condiments-spices">condiments-spices</button>
+                </div>
+                <br>
+                <div class="catSection categories center">
+                    <button class="categoryBtn btn waves-effect waves-light frozen-foods">frozen-foods</button>
+                    <button class="categoryBtn btn waves-effect waves-light meat-seafood">meat-seafood</button>
+                    <button class="categoryBtn btn waves-effect waves-light produce">produce</button>
+                    <button class="categoryBtn btn waves-effect waves-light snacks">snacks</button>
+                    <button class="categoryBtn btn waves-effect waves-light dairy">dairy</button>
+                    <button class="categoryBtn btn waves-effect waves-light other">other</button>
+                </div>
+            </div>
+        </div>
+        {{!-- <h3 class="center">My Groceries</h3> --}}
         <div class="row ing-container">
             {{#each ingredients}}
             {{#if isMine}}
-            <div class="col s12 m4 l3">
+            <div class="col s10 m4 l3">
+                {{!-- addtl card style --}}
                 <div class="card {{category}}">
-                    <div class="card-content white-text">
-                        <p class="card-title">{{name}}</p>
-                        <p class="light-text">{{category}}</p>
-                        <p class="right">exp: {{expiration}}</p>
+                    <div class="card-content">
+                        <span class="card-title activator grey-text text-darken-4">{{name}}</span>
                     </div>
-                    <div class="card-action">
-                        <button class="update btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
-                                class="material-icons">create</i></button>
-                        <button class="delete btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
-                                class="material-icons">delete</i></button>
+                    <div class="card-content">
+                        <p>Exp:</p>
+                        <span class="card-title activator grey-text text-darken-4">{{expiration}}<i
+                                class="material-icons right">more_vert</i></span>
+                    </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">{{name}}<i
+                                class="material-icons right">close</i></span>
+                        <p>{{category}}</p>
+                        <div class="card-action btn-card">
+                            <button class="update btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
+                                    class="material-icons">create</i></button>
+                            <button class="delete btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
+                                    class="material-icons">delete</i></button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -77,33 +77,86 @@
 
     </div>
 
-    <div class="col s12 right">
 
-        {{!-- list of ingredients that user added --}}
-        <h3 class="center">Recipes</h3>
 
-        <div class="row">
-            <div class="col s1"></div>
-            <div class="col s10">
 
-                <div id="recipeCard" class="card">
-                    <div class="card-action">
-                        <p id="recipeTitle" class="card-title">Recipe Title</p>
-                        <p id="recipeUrl" class="light-text">URL</p>
-                        <p id="recipeSum"></p>
-                        <p id="recipeInst"></p>
-                        <ul id="ingredientList">
-                            <li class="recipeIngr">Ingredients</li>
-                        </ul>
-                        <button id="save" class="delete btn waves-effect waves-light btn-flat">
-                            <i class="material-icons">save</i></button>
-                    </div>
-                </div>
-
-            </div>
-            <div class="col s1"></div>
+</div>
+<div class="row groceries">
+    <div class="col s12">
+        <div class="center">
+            <span class="letter" style="color:#9932CC">R</span>
+            <span class="letter" style="color:#FFFF00">E</span>
+            <span class="letter" style="color:#FF0000">C</span>
+            <span class="letter" style="color:#228B22">I</span>
+            <span class="letter" style="color:#00BFFF">P</span>
+            <span class="letter" style="color:#9932CC">E</span>
+            <span class="letter" style="color:#FFA500">S</span>
+        </div>
+        <div id="recBtn" class="center">
+            <button id="search" class="btn waves-effect waves-light">Search</button>
         </div>
 
+        <div class="col s12 right">
+            {{!-- list of ingredients that user added --}}
+            {{!-- <h3 class="center">Recipes:</h3> --}}
+            <div class="row">
+                <div class="col s2"></div>
+                <div class="col s8">
+
+                    <div id="recipeCard" class="card">
+                        <div class="card-action">
+                            <p id="recipeTitle" class="card-title">Recipe Title</p>
+                            <p id="recipeUrl" class="light-text">URL</p>
+                            <p id="recipeSum"></p>
+                            <p id="recipeInst"></p>
+                            <ul id="ingredientList">
+                                <li class="recipeIngr">Ingredients</li>
+                            </ul>
+
+                            <button id="save" class="delete btn waves-effect waves-light btn-flat">
+                                <i class="material-icons">save</i></button>
+
+                        </div>
+                    </div>
+                    
+{{!-- 
+                    <div id="recipeCard" class="card">
+                        <div class="card-content">
+                            <span id="recipeTitle" class=" recipeTitle card-title activator grey-text text-darken-4">Recipe Title</span>
+                        </div>
+                        <div class="card-content">
+                            <span id="recipeUrl" class="card-title activator grey-text text-darken-4">URL<i
+                                    class="material-icons right">more_vert</i></span>
+                        </div>
+                        <div class="card-reveal">
+                            <span class="recipeTitle card-title grey-text text-darken-4">Recipe Title<i
+                                    class="material-icons right">close</i></span>
+                            <p id="recipeSum">Summary</p>
+                                                        <p id="recipeInst"></p>
+                            <ul id="ingredientList">
+                                <li class="recipeIngr">Ingredients</li>
+                            </ul>
+                            <div class="card-action btn-card">
+                                 <button id="save" class="delete btn waves-effect waves-light btn-flat">
+                                <i class="material-icons">save</i></button>
+                            </div>
+                        </div>
+                    </div> --}}
+
+                </div>
+                <div class="col s2"></div>
+            </div>
+
+        </div>
     </div>
 </div>
+
+<footer>
+    <div class="row container center">
+        <div class="col s12">
+            <p>&copy;CheckItOut</p>
+        </div>
+    </div>
+
+</footer>
 {{/if}}

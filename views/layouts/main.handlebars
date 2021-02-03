@@ -8,15 +8,36 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/style.css">
 
 </head>
 
 <body class="parallax">
     <div class="fixed">
-
         <header>
-            <h1 class="center">Check Your Fridge!</h1>
+            <div class="container center">
+                <span class="letter" style="color:#FFA500">C</span>
+                <span class="letter" style="color:#00BFFF">H</span>
+                <span class="letter" style="color:#228B22">E</span>
+                <span class="letter" style="color:#FFA500">C</span>
+                <span class="letter" style="color:#FF0000">K</span>
+                <span class="letter" style="color:#228B22">-</span>
+                <span class="letter" style="color:#9932CC">Y</span>
+                <span class="letter" style="color:#9932CC">O</span>
+                <span class="letter" style="color:#FFFF00">U</span>
+                <span class="letter" style="color:#FF0000">R</span>
+                <span class="letter" style="color:#9932CC">-</span>
+                <span class="letter" style="color:#00BFFF">F</span>
+                <span class="letter" style="color:#FFFF00">R</span>
+                <span class="letter" style="color:#FFA500">I</span>
+                <span class="letter" style="color:#228B22">D</span>
+                <span class="letter" style="color:#9932CC">G</span>
+                <span class="letter" style="color:#FFA500">E</span>
+                <span class="letter" style="color:#00BFFF">!</span>
+            </div>
+
         </header>
 
 
@@ -25,22 +46,21 @@
             {{#if user}}
             <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
             <ul class="left hide-on-med-and-down">
-                <li><a class="large" href="/">home</a></li>
-                <li><a class="large" href="/add">add</a></li>
-                {{!-- <li><a class="large" href="/search">search</a></li> --}}
-                <li><a class="large" href="/recipes">recipes</a></li>
+                <li><a class="large" href="/">Home</a></li>
+                <li><a class="large" href="/add">Add</a></li>
+                <li><a class="large" href="/recipes">Recipes</a></li>
             </ul>
             <ul class="right">
-                <li><span class="right">welcome, {{user.username}}!</span></li>
-                <li><a class="large" href="/logout">logout</a></li>
+                <li><span id="welcome" class="right large">Welcome, {{user.username}}!</span></li>
+                <li><a class="large" href="/logout">Logout</a></li>
             </ul>
             {{/if}}
 
             {{!-- if user is not logged in, this is the navbar --}}
             {{#unless user}}
             <ul class="right">
-                <li><a class="large" href="/login">login</a></li>
-                <li><a class="large" href="/signup">signup</a></li>
+                <li><a class="large" href="/login">Login</a></li>
+                <li><a class="large" href="/signup">Signup</a></li>
             </ul>
             {{/unless}}
 
@@ -54,14 +74,12 @@
         <ul class="sidenav" id="mobile-demo">
             <li><a href="/">home</a></li>
             <li><a href="/add">add</a></li>
-            <li><a href="/search">search</a></li>
             <li><a href="/recipes">recipes</a></li>
         </ul>
     </div>
 
 
     {{{ body }}}
-
 
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"
