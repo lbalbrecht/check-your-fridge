@@ -18,6 +18,10 @@ h3, h4, .groceries{
     width: 100vw;
 }
 
+.categoryBtn:hover, #search:hover, .material-icons:hover, .update:hover, .delete:hover, #submitIngr:hover, .modal-overlay{
+    background-color: rgb(124, 196, 8);
+}
+
 header{
     background-image: url("/images/texture.png");
     padding-top: 1%;
