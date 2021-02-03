@@ -81,34 +81,34 @@ $(document).ready(function () {
             url: $(`#recipeUrl${document.activeElement.id}`).text(),
             summary: $(`#recipeSum${document.activeElement.id}`).text(),
             instructions: $(`#recipeInst${document.activeElement.id}`).text(),
-            ingredients: $(`#recipeInst${document.activeElement.id}`).text(),
-            userId: $(`#recipeTitle${document.activeElement.id}`).text()
+            ingredients: $(`#ingredientList${document.activeElement.id}`).text(),
         }
         console.log(newRecipe);
 
-        if (updating) {
-            newRecipe.id = recipeId;
-            // updatePost(newIngredient)
-            $.ajax({
-                method: "PUT",
-                url: "/api/recipes",
-                data: newRecipe
-            }).then(function () {
-                window.location.href = "/"
-            }).fail(err => {
-                alert("Something went wrong")
-            })
-        }
+        // if (updating) {
+        //     newRecipe.id = recipeId;
+        //     // updatePost(newIngredient)
+        //     $.ajax({
+        //         method: "PUT",
+        //         url: "/api/recipes",
+        //         data: newRecipe
+        //     }).then(function () {
+        //         window.location.href = "/"
+        //     }).fail(err => {
+        //         alert("Something went wrong")
+        //     })
+        // }
 
-        else {
+        // else {
 
             $.post("/api/recipes", newRecipe).then(data => {
-                window.location.href = "/"
+                // window.location.href = "/"
+                alert("saved recipe!")
             }).fail(err => {
                 alert("Something went wrong")
                 // console.log(err)
             })
-        }
+        // }
     })
 
 
