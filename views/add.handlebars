@@ -1,55 +1,54 @@
-    <!-- add form -->
-    <div class="row">
-        <form class="col s12">
+<!-- add form -->
+<div class="row">
+    <div class="col s1 m2 l4"></div>
+    <form id="adding" class="col s10 m8 l4 container">
 
+<<<<<<< HEAD
             <div class="row">
                 <div class="input-field col s12">
                     <input id="name" type="text" name="name">
                     <label for="name">Ingredient Name</label>
                 </div>
+=======
+        <div class="row">
+            <label for="name">Ingredient Name</label>
+            <div class="input-field col s12">
+                <input id="name" type="text" name="name" class="validate" required="" aria-required="true">
+>>>>>>> dev
             </div>
+        </div>
 
-            <div class="row">
-                <div class="input-field col s12">
-                    <input id="expiration" type="text" class="datepicker" name="expiration">
-                    <label for="expiration">Expiration Date</label>
-                </div>
+        <div class="row">
+            <label for="expiration">Expiration Date</label>
+            <div class="input-field col s12">
+                <input id="expiration" type="text" class="datepicker" name="expiration" required="" aria-required="true">   
             </div>
+        </div>
 
-            <div class="row">
-                <div class="input-field col s12">
-                    <select name="category" id="category" class="validate">
-                        <option value="" disabled selected>choose a category</option>
-                        <option value="bread">bread</option>
-                        <option value="beverages">beverages</option>
-                        <option value="canned-goods">canned-goods</option>
-                        <option value="condiments-spices">condiments-spices</option>
-                        <option value="dairy">dairy</option>
-                        <option value="frozen-foods">frozen-foods</option>
-                        <option value="meat-seafood">meat-seafood</option>
-                        <option value="produce">produce</option>
-                        <option value="snacks">snacks</option>
-                        <option value="other">other</option>
-                    </select>
-                    <label>Category</label>
-                </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <select name="category" id="category" class="validate">
+                    <option value="" disabled selected>choose a category</option>
+                    <option value="bread">bread</option>
+                    <option value="beverages">beverages</option>
+                    <option value="canned-goods">canned-goods</option>
+                    <option value="condiments-spices">condiments-spices</option>
+                    <option value="frozen-foods">frozen-foods</option>
+                    <option value="meat-seafood">meat-seafood</option>
+                    <option value="produce">produce</option>
+                    <option value="dairy">dairy</option>
+                    <option value="snacks">snacks</option>
+                    <option value="other">other</option>
+                </select>
             </div>
+        </div>
 
 
-            <button class="btn waves-effect waves-light right" id="addIngredient" type="submit" name="action">Submit
-                <i class="material-icons right">send</i>
-            </button>
+        <button class="btn waves-effect waves-light right" id="addIngredient" type="submit" name="action">Submit
+            <i class="material-icons right">send</i>
+        </button>
 
-{{!-- modal for when user doesn't fill in name or category --}}
-              <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
+        <div class="col s1 m2 l4"></div>
 
-        </form>
-    </div>
+    </form>
+</div>
