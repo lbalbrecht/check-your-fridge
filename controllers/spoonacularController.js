@@ -81,40 +81,5 @@ function findRecipe(listOfIngredients, res) {
 
   })
 }
-function findRecipeInfo(id) {
-  const options = {
-    method: 'GET',
-    url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${id}/information`,
-    headers: {
-      'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
-      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
-    }
-  };
-
-
-  axios.request(options).then(function (response) {
-    // console.log(response.data)
-    // console.log(response.data.title)
-    // console.log(response.data.sourceUrl)
-    // console.log(response.data.summary)
-    // console.log(response.data.instructions)
-    // let ingredientAmount = response.data.extendedIngredients
-    // ingredientAmount.forEach(element => {
-    //   console.log(element.originalString);
-    // });
-    // console.log(response.data.extendedIngredients[0].originalString);
-    // console.log(recipe);
-    listRecipes.push(response.data);
-    // console.log(listRecipes);
-  }).catch(function (error) {
-    console.error(error);
-  });
-}
-
-// console.log("test " + findRecipe(ingredient));
-
-// var ingredients = 'apples,flour,sugar'
-
-// findRecipe(ingredients);
 
 module.exports = router;
