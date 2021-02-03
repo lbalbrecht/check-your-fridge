@@ -186,7 +186,7 @@ $(document).ready(function () {
 
 
     $("#search").on("click", function () {
-        const food = ['blueberry'];
+        const food = [];
 
         $.each($("input[name='food']:checked"), function () {
 
