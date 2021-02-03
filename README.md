@@ -13,7 +13,7 @@ Check Your Fridge creates a database of food that you have in your fridge. Using
 ## Usage
 
 After signing up for or logging into the application, you will be able to input items into your own CYF database; you can organize your items by category and also include an expiration date (although, it is not required). Click on "Add" at the top of the page and follow the prompt to add a new item. Once the item is entered, click "Click to add to search!" on the item card to add it to the recipe search function. When you want to edit or remove the item, click on the three dots within the item card.
-Navigate to the bottom of the page and click "search" with your desired items selected to find a recipe with the ingredients selected. If you wish to save the recipe you find, click "save" and the recipe will be available on the "Recipes" page.
+Navigate to the bottom of the page and click "search" with your desired items selected to find a recipe with the ingredients selected. If you wish to save the recipe you find, click the box on the bottom of the recipe and the recipe will save and be available on the "Recipes" page.
 
 ![CYF Landing Page](assets\home-page.png)
 
@@ -23,7 +23,7 @@ Navigate to the bottom of the page and click "search" with your desired items se
 
 ![CYF Home Page](assets\login-page.png)
 
-![CYF Recipe Page]()
+![CYF Recipe Page](assets\recipe-page.png)
 
 ## Built with
 
