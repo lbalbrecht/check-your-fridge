@@ -1,29 +1,4 @@
-nav{
-    background-color: rgb(124, 196, 8);
-}
-.large {
-    font-size: 175%;
-}
-
-.light-text{
-    color: rgb(218, 218, 218);
-}
-
-.btn{
-    background-color: #9f58c2;
-    border: 2px solid rgb(124, 196, 8);
-}
-
-.categoryBtn, .all{
-    margin-bottom: 5px;
-}
-
-.card {
-    background-color: #9f58c2;
-    border-radius: 5px;
-    border: 2px solid rgb(124, 196, 8);
-}
-
+/* general styling */
 .parallax {
     background-image: url("/images/interior-of-refrigerator.jpg");
     height: 500px;
@@ -40,9 +15,7 @@ h1, h3, h4, .letter{
 h3, h4, .groceries{
     background-color: rgb(255, 255, 255);
     background-image: url("/images/texture.png");
-    border-radius: 5px;
-    box-shadow: 2px 3px rgba(62, 0, 90, 0.651);
-    padding: 2%;
+    width: 100vw;
 }
 
 header{
@@ -54,6 +27,71 @@ header{
     justify-content: center;
 }
 
+.letter{
+    font-size: 4rem;
+    text-shadow: 2px 2px rgb(73, 73, 73);
+}
+
+nav{
+    background-color: rgb(124, 196, 8);
+}
+
+.large {
+    font-size: 175%;
+}
+
+.light-text{
+    color: rgb(218, 218, 218);
+}
+
+.btn-flat{
+    background-color: #9f58c2;
+    font-size: 13px;
+}
+
+
+/* ingredient & recipe display layout */
+.groceries{
+    margin-top: 10%;
+    margin-bottom: 30%;
+    padding-bottom: 5%;
+    padding-top: 2%;
+}
+
+.catSection{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    justify-content: space-evenly;
+}
+
+.card {
+    border-radius: 5px;
+}
+
+.btn-card{
+    display: flex;
+    justify-content: space-around;
+}
+
+.update, .delete{
+    background-color: rgb(124, 196, 8);
+}
+
+#recBtn{
+    padding-bottom: 2%;
+}
+
+#recipeCard, .purple{
+    color: white;
+}
+
+
+
+
+
+
+/* login and sign up forms */
 #login, #signup{
     background-color: #eee;
     padding: 3%;
@@ -62,28 +100,11 @@ header{
     box-shadow: 2px 2px rgba(90, 90, 90, 0.568);
 }
 
-.update, .delete{
-    background-color: rgb(124, 196, 8);
-}
 
-.btn-card{
-    display: flex;
-    justify-content: space-around;
-}
 
-.letter{
-    font-size: 4rem;
-    text-shadow: 2px 2px rgb(73, 73, 73);
-}
 
-.groceries{
-    margin-top: 3%;
-}
 
-#recBtn{
-    padding-bottom: 2%;
-}
-
+/* ingredient form */
 #adding{
     background-color: #eee;
     border-radius: 3px;
@@ -92,12 +113,19 @@ header{
     margin-top: 2%;
 }
 
-#recipeCard{
+
+
+
+
+footer{
+    background-color: rgb(124, 196, 8);
+    width: 100vw;
+    padding: 2%;
     color: white;
 }
 
-.catSection{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+#login-foot, #signup-foot{
+    bottom: 0;
+    right: 0;
+    position: fixed;
 }

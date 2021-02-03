@@ -1,65 +1,11 @@
 <!-- list of categories -->
 {{#if user}}
-<div class="row">
-    <div class="col s12 catSection categories container">
-        {{!-- <div class="catSection categories"> --}}
-            <ul>
-                <li>
-                    <button class="btn waves-effect waves-light all center">all</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light bread">bread</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light beverages">beverages</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light canned-goods">canned-goods</button>
-                </li>
-                <li>
-                    <button
-                        class="categoryBtn btn waves-effect waves-light condiments-spices">condiments-spices</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light frozen-foods">frozen-foods</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light meat-seafood">meat-seafood</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light produce">produce</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light snacks">snacks</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light dairy">dairy</button>
-                </li>
-                <li>
-                    <button class="categoryBtn btn waves-effect waves-light other">other</button>
-                </li>
-            </ul>
-        {{!-- </div> --}}
-    </div>
-</div>
-<div class="row">
 
-    {{!-- <div class="col s12 m4 l3"> --}}
-        {{!-- <br> --}}
-        {{!-- <br> --}}
-        {{!-- <br> --}}
-        {{!-- <h3 class="left">Categories</h3> --}}
+<div class="row groceries center">
 
-        {{!-- <h3 class="left">Search for Recipes</h3>
-        <div class="searchSection left">
-            <button id="search" class="btn waves-effect waves-light">Search</button>
-        </div> --}}
-    {{!-- </div> --}}
-
-    <div class="col s12 m8 l9 right">
-
+    <div class="col s12 right">
         {{!-- list of ingredients that user added --}}
-        <div class="container groceries center">
+        <div class="row">
             <span class="letter" style="color:#FF0000">M</span>
             <span class="letter" style="color:#228B22">Y</span>
             <span class="letter" style="color:#9932CC">-</span>
@@ -73,12 +19,32 @@
             <span class="letter" style="color:#9932CC">E</span>
             <span class="letter" style="color:#00BFFF">S</span>
         </div>
+    </div>
+
+    <div class="container center">
+        <div class="row">
+            <div class="col s12 container center">
+                <div class="catSection categories center">
+                    <button class="CategoryBtn waves-effect waves-light purple accent-4 btn all center">all</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 bread">bread</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 beverages">beverages</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 canned-goods">canned-goods</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 condiments-spices">condiments-spices</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 frozen-foods">frozen-foods</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 meat-seafood">meat-seafood</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 produce">produce</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 snacks">snacks</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 dairy">dairy</button>
+                    <button class="categoryBtn btn waves-effect waves-light purple accent-4 other">other</button>
+                </div>
+            </div>
+        </div>
         {{!-- <h3 class="center">My Groceries</h3> --}}
         <div class="row ing-container">
             {{#each ingredients}}
             {{#if isMine}}
             <div class="col s12 m4 l3">
-                <div class="card {{category}}">
+                <div class="card purple accent-4 {{category}}">
                     <div class="card-content white-text">
                         <p class="card-title">{{name}}</p>
                         <p class="light-text">{{category}}</p>
@@ -98,8 +64,13 @@
 
     </div>
 
-    <div class="col s12 center groceries">
-        <div>
+
+
+
+</div>
+<div class="row groceries">
+    <div class="col s12">
+        <div class="center">
             <span class="letter" style="color:#9932CC">R</span>
             <span class="letter" style="color:#FFFF00">E</span>
             <span class="letter" style="color:#FF0000">C</span>
@@ -108,40 +79,47 @@
             <span class="letter" style="color:#9932CC">E</span>
             <span class="letter" style="color:#FFA500">S</span>
         </div>
-        <div id="recBtn">
-            <button id="search" class="btn waves-effect waves-light">Search</button>
+        <div id="recBtn" class="center">
+            <button id="search" class="btn waves-effect waves-light purple accent-4">Search</button>
         </div>
 
-        {{!-- <h4>Recipes:</h4> --}}
-    </div>
+        <div class="col s12 right">
+            {{!-- list of ingredients that user added --}}
+            {{!-- <h3 class="center">Recipes:</h3> --}}
+            <div class="row">
+                <div class="col s1"></div>
+                <div class="col s10">
 
-    <div class="col s12 right">
-        {{!-- list of ingredients that user added --}}
-        {{!-- <h3 class="center">Recipes:</h3> --}}
-        <div class="row">
-            <div class="col s1"></div>
-            <div class="col s10">
+                    <div id="recipeCard" class="card purple accent-4">
+                        <div class="card-action">
+                            <p id="recipeTitle" class="card-title">Recipe Title</p>
+                            <p id="recipeUrl" class="light-text">URL</p>
+                            <p id="recipeSum"></p>
+                            <p id="recipeInst"></p>
+                            <ul id="ingredientList">
+                                <li class="recipeIngr">Ingredients</li>
+                            </ul>
 
-                <div id="recipeCard" class="card">
-                    <div class="card-action">
-                        <p id="recipeTitle" class="card-title">Recipe Title</p>
-                        <p id="recipeUrl" class="light-text">URL</p>
-                        <p id="recipeSum"></p>
-                        <p id="recipeInst"></p>
-                        <ul id="ingredientList">
-                            <li class="recipeIngr">Ingredients</li>
-                        </ul>
+                            <button id="save" class="delete btn waves-effect waves-light btn-flat">
+                                <i class="material-icons">save</i></button>
 
-                        <button id="save" class="delete btn waves-effect waves-light btn-flat">
-                            <i class="material-icons">save</i></button>
-
+                        </div>
                     </div>
+
                 </div>
-
+                <div class="col s1"></div>
             </div>
-            <div class="col s1"></div>
-        </div>
 
+        </div>
     </div>
 </div>
+
+<footer>
+    <div class="row container center">
+        <div class="col s12">
+            <p>&copy;CheckItOut</p>
+        </div>
+    </div>
+
+</footer>
 {{/if}}
