@@ -240,21 +240,32 @@ $(document).ready(function () {
 
             let recipeCard = $("<div/>", { class: "card", "id": `recipeCard${i}` })
             let divRecipe = $("<div/>", { class: "card-action", "id": `recipeDiv${i}` });
+            let divImage = $("<div/>", {class: "card-image", "id": `divImage${i}`});
 
+            let recipeImage = $("<img/>", {src: `${data[i].image}`, id: `recipeImage${i}`});
+            recipeImage.append(data[i].image);
             let recipeTitle = $("<p/>", { class: "card-title", "id": `recipeTitle${i}` });
             recipeTitle.text(data[i].title);
-            let recipeUrl = $("<p/>", { id: `recipeUrl${i}` })
+            // let urlId = $(`recipeUrl${i}`)
+            // urlId.append(data[i].sourceUrl)
+            // let recipeUrl = $("<a/>", { href: `${data[i].sourceUrl}`, id: urlId })
+            // recipeUrl.text("Link to recipe website")
+            let recipeUrl = $("<a/>", { href: `${data[i].sourceUrl}`, id: `recipeUrl${i}`, class: "card-url" })
             recipeUrl.append(data[i].sourceUrl)
+            let sumHead = $("<h5/>").text("Summary")
             let recipeSum = $("<p/>", { id: `recipeSum${i}` })
             recipeSum.append(data[i].summary)
+            let instHead = $("<h5/>").text("Instructions")
             let recipeInst = $("<p/>", { id: `recipeInst${i}` })
             recipeInst.append(data[i].instructions)
+            let ingrHead = $("<h5/>").text("Ingredients")
             let ingredientList = $("<p/>", { id: `ingredientList${i}` })
             ingredientList.append(ingredients)
             $('#recipe-area').append(recipeCard)
-            $(`#recipeCard${i}`).append(divRecipe);
+            $(`#recipeCard${i}`).append(divImage, divRecipe);
 
-            $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, recipeSum, recipeInst, ingredientList, saveButton)
+            $(`#divImage${i}`).append(recipeImage)
+            $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, sumHead, recipeSum, ingrHead, ingredientList, instHead, recipeInst, saveButton)
             // for (let i = 0; i < ingredients.length; i++) {
             //     console.log("inside for loop" + ingredients)
             //     let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})

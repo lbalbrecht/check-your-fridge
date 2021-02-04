@@ -1,14 +1,75 @@
-<h2>recipes</h2>
+<div class="row groceries">
+        <div id="savedAbc" class="col 12">
+                <div class="center">
+                        <span class="letter" style="color:#228B22">M</span>
+                        <span class="letter" style="color:#FFA500">Y</span>
+                        <span class="letter" style="color:#00BFFF">-</span>
+                        <span class="letter" style="color:#9932CC">R</span>
+                        <span class="letter" style="color:#FFFF00">E</span>
+                        <span class="letter" style="color:#FF0000">C</span>
+                        <span class="letter" style="color:#228B22">I</span>
+                        <span class="letter" style="color:#00BFFF">P</span>
+                        <span class="letter" style="color:#9932CC">E</span>
+                        <span class="letter" style="color:#FFA500">S</span>
+                </div>
+        </div>
+        <div class="col s12">
+                <div class="row">
+                        {{!-- <div class="col s1 m3 l2"></div> --}}
+                        <div id="savedCont" class="col s12">
+                                {{#each recipes}}
+                                {{#if isMine}}
+                                <div class="card container">
+                                        <div class="card-content titleNbtn">
+                                                <div>
+                                                        <span id="recipeTitle"
+                                                                class=" recipeTitle card-title activator grey-text text-darken-4">{{title}}<i
+                                                                        class="material-icons activator right">open_in_new</i></span>
 
-{{#each recipes}}
-{{#if isMine}}
-<h4>{{title}}</h4>
-<p>You can find this recipe at: {{url}}</p>
-<p>{{summary}}</p>
-<p>Instruction: {{instructions}}</p>
-<p>Ingredients: {{ingredients}}</p>
+                                                </div>
 
-<button class="deleteRecipe btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
-        class="material-icons">delete</i></button>
-{{/if}}
-{{/each}}
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <hr>
+                                        <div class="card-content titleNbtn">
+                                                <div>
+                                                        <span id="recipeUrl" class="card-title grey-text text-darken-4">
+                                                                <a href="{{url}}">Link to recipe website</a></span>
+                                                </div>
+                                                <div>
+                                                        <button id="delete"
+                                                                class="deleteRecipe btn waves-effect waves-light btn-flat"
+                                                                data-id="{{this.id}}">
+                                                                <i class="material-icons">delete</i></button>
+                                                </div>
+                                        </div>
+
+                                        <div class="card-reveal">
+                                                <span class="recipeTitle card-title grey-text text-darken-4">{{title}}<i
+                                                                class="material-icons right">close</i></span>
+                                                <h5>Summary</h5>
+                                                <p id="recipeSum">{{summary}}</p>
+                                                <h5>Ingredients</h5>
+                                                <p class="recipeIngr">{{ingredients}}</p>
+                                                <h5>Instructions</h5>
+                                                <p id="recipeInst">{{instructions}}</p>
+                                        </div>
+                                </div>
+                                {{/if}}
+                                {{/each}}
+                        </div>
+                        {{!-- <div class="col s1 m3 l2"></div> --}}
+                </div>
+        </div>
+
+</div>
+
+<footer>
+        <div class="row container center">
+                <div class="col s12">
+                        <p>&copy;Check It Out</p>
+                </div>
+        </div>
+
+</footer>

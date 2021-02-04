@@ -12,6 +12,10 @@ h1, h3, h4, .letter{
     font-family: 'Rubik Mono One', sans-serif;
 }
 
+h5{
+    text-decoration: underline;
+}
+
 h3, h4, .groceries{
     background-color: rgb(255, 255, 255);
     background-image: url("/images/texture.png");
@@ -55,9 +59,10 @@ nav{
 /* ingredient & recipe display layout */
 .groceries{
     margin-top: 20%;
-    margin-bottom: 20%;
+    margin-bottom: 30%;
     padding-bottom: 5%;
     padding-top: 2%;
+    width: 100vw;
 }
 
 .catSection{
@@ -67,18 +72,29 @@ nav{
     justify-content: space-evenly;
 }
 
-.categoryBtn, .all, #search{
+.categoryBtn, .all, #search, .waves-effect, .waves-light, .recipeButton{
     background: none;
     color: #9f58c2;
     font-weight: bold;
 }
 
-.card {
-    border-radius: 5px;
-    border: 3px solid #9f58c2;
-    background-color: #eee;
-    /* background-image: url("/images/texture.png"); */
+.categoryBtn:hover, #search:hover, .material-icons:hover, .update:hover, .delete:hover, #submitIngr:hover, .modal-overlay, .deleteRecipe:hover, #addIngredient:hover, .recipeButton:hover{
+    background-color: rgb(124, 196, 8);
 }
+
+.card {
+    /* border-radius: 5px; */
+    /* border: 1px solid #9f58c2; */
+    background-color: rgba(255, 255, 255, 0.705);
+    /* background-image: url("/images/texture.png"); */
+    font-family: 'Signika Negative', sans-serif;
+    color: rgb(44, 44, 44);
+}
+
+.card-url{
+    font-size: 10px;
+}
+
 
 .btn-card{
     display: flex;
@@ -123,7 +139,39 @@ nav{
     box-shadow: 2px 2px rgba(90, 90, 90, 0.568);
     padding: 2%;
     margin-top: 2%;
+    margin-bottom: 5%;
 }
+
+.datepicker-date-display{
+    background-color: #9f58c2;
+}
+
+.titleNbtn{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+
+/* recipe card & page styling */
+.card-reveal{
+    background-color: #eee;
+    color: rgb(39, 39, 39);
+}
+
+#savedAbc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#savedCont{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 
 
 
@@ -140,4 +188,5 @@ footer{
     bottom: 0;
     right: 0;
     position: fixed;
+    width: 100vw;
 }
