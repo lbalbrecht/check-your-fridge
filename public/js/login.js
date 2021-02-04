@@ -4,6 +4,8 @@ $(document).ready(function () {
     $('.datepicker').datepicker();
     $('select').formSelect();
     $('.sidenav').sidenav();
+    $('.modal').modal();
+
     let url = window.location.search
 
     // when login button is clicked
@@ -30,7 +32,7 @@ $(document).ready(function () {
             password: $("#password").val().trim(),
         }).then(data => {
             console.log("Signed up!")
-            window.location.href = "/"
+            // window.location.href = "/"
         }).fail(err => {
             alert("Signup failed")
             console.log("Signup failed")
@@ -103,7 +105,7 @@ $(document).ready(function () {
 
             $.post("/api/recipes", newRecipe).then(data => {
                 // window.location.href = "/"
-                alert("saved recipe!")
+                // alert("saved recipe!")
             }).fail(err => {
                 alert("Something went wrong")
                 // console.log(err)
@@ -218,11 +220,13 @@ $(document).ready(function () {
             }
             ingredients = ingredients.join();
             console.log(ingredients)
-            let saveButton = $('<input/>').attr({
-                type: "button",
-                class: "recipeButton",
-                id: `${i}`
+            let saveButton = $('<button/>').attr({
+                // type: "button",
+                class: "recipeButton btn modal-trigger",
+                id: `${i}`,
+                "data-target": "modal1"
             });
+            saveButton.append(`<i class="material-icons">bookmark_border</i>`)
 
             let recipeCard = $("<div/>", { class: "card", "id": `recipeCard${i}` })
             let divRecipe = $("<div/>", { class: "card-action", "id": `recipeDiv${i}` });
@@ -239,15 +243,15 @@ $(document).ready(function () {
             ingredientList.append(ingredients)
             $('#recipe-area').append(recipeCard)
             $(`#recipeCard${i}`).append(divRecipe);
-
+            
             $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, recipeSum, recipeInst, ingredientList, saveButton)
             // for (let i = 0; i < ingredients.length; i++) {
-            //     console.log("inside for loop" + ingredients)
-            //     let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})
-            //     recipeIngr.text(ingredients[i])
-            //     $(`#ingredientList${trackedNumber}`).append(recipeIngr)
-            // } 
-            $(`#recipeCard`).append(saveButton);
+                //     console.log("inside for loop" + ingredients)
+                //     let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})
+                //     recipeIngr.text(ingredients[i])
+                //     $(`#ingredientList${trackedNumber}`).append(recipeIngr)
+                // } 
+                $(`#recipeCard`).append(saveButton);
+            }
         }
-    }
 })
