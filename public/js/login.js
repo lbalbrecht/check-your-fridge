@@ -4,6 +4,7 @@ $(document).ready(function () {
     $('.datepicker').datepicker();
     $('select').formSelect();
     $('.sidenav').sidenav();
+    $('.modal').modal();
     let url = window.location.search
 
     // when login button is clicked
@@ -85,25 +86,9 @@ $(document).ready(function () {
         }
         console.log(newRecipe);
 
-        // if (updating) {
-        //     newRecipe.id = recipeId;
-        //     // updatePost(newIngredient)
-        //     $.ajax({
-        //         method: "PUT",
-        //         url: "/api/recipes",
-        //         data: newRecipe
-        //     }).then(function () {
-        //         window.location.href = "/"
-        //     }).fail(err => {
-        //         alert("Something went wrong")
-        //     })
-        // }
-
-        // else {
-
             $.post("/api/recipes", newRecipe).then(data => {
                 // window.location.href = "/"
-                alert("saved recipe!")
+                // alert("saved recipe!")
             }).fail(err => {
                 alert("Something went wrong")
                 // console.log(err)
@@ -219,6 +204,21 @@ $(document).ready(function () {
         console.log(food);
     })
 
+    $("#searchName").on("click", function () {
+        $("#recipe-area").empty();
+        let searchInput = $("#text_inline").val();
+        let searchName = searchInput.replace(/[^\w\s]/g, '')
+
+        $.post("/api/spoonacular/search", { searchName }, function (data) {
+
+            // console.log(data[0]);
+
+            createCard({ data })
+
+        })
+
+    })
+
     function createCard({ data }) {
         console.log(data)
         for (let i = 0; i < data.length; i++) {
@@ -227,15 +227,17 @@ $(document).ready(function () {
             let ingredientArray = data[i].extendedIngredients
             for (let i = 0; i < ingredientArray.length; i++) {
                 let ingredientString = ingredientArray[i].originalString
-                ingredients.push(ingredientString)
+                ingredients.push("  " + ingredientString)
             }
             ingredients = ingredients.join();
             console.log(ingredients)
-            let saveButton = $('<input/>').attr({
-                type: "button",
-                class: "recipeButton",
-                id: `${i}`
+            let saveButton = $('<button/>').attr({
+                // type: "button",
+                class: "recipeButton btn modal-trigger",
+                id: `${i}`,
+                "data-target": "modal1"
             });
+            saveButton.append(`<i class="material-icons">bookmark_border</i>`)
 
             let recipeCard = $("<div/>", { class: "card", "id": `recipeCard${i}` })
             let divRecipe = $("<div/>", { class: "card-action", "id": `recipeDiv${i}` });

@@ -1,75 +1,112 @@
 <div class="row groceries">
-        <div id="savedAbc" class="col 12">
-                <div class="center">
-                        <span class="letter" style="color:#228B22">M</span>
-                        <span class="letter" style="color:#FFA500">Y</span>
-                        <span class="letter" style="color:#00BFFF">-</span>
-                        <span class="letter" style="color:#9932CC">R</span>
-                        <span class="letter" style="color:#FFFF00">E</span>
-                        <span class="letter" style="color:#FF0000">C</span>
-                        <span class="letter" style="color:#228B22">I</span>
-                        <span class="letter" style="color:#00BFFF">P</span>
-                        <span class="letter" style="color:#9932CC">E</span>
-                        <span class="letter" style="color:#FFA500">S</span>
-                </div>
+    <div id="savedAbc" class="col 12">
+        <div class="center">
+            <span class="letter" style="color:#228B22">M</span>
+            <span class="letter" style="color:#FFA500">Y</span>
+            <span class="letter" style="color:#00BFFF">-</span>
+            <span class="letter" style="color:#9932CC">R</span>
+            <span class="letter" style="color:#FFFF00">E</span>
+            <span class="letter" style="color:#FF0000">C</span>
+            <span class="letter" style="color:#228B22">I</span>
+            <span class="letter" style="color:#00BFFF">P</span>
+            <span class="letter" style="color:#9932CC">E</span>
+            <span class="letter" style="color:#FFA500">S</span>
         </div>
-        <div class="col s12">
-                <div class="row">
-                        {{!-- <div class="col s1 m3 l2"></div> --}}
-                        <div id="savedCont" class="col s12">
-                                {{#each recipes}}
-                                {{#if isMine}}
-                                <div class="card container">
-                                        <div class="card-content titleNbtn">
-                                                <div>
-                                                        <span id="recipeTitle"
-                                                                class=" recipeTitle card-title activator grey-text text-darken-4">{{title}}<i
-                                                                        class="material-icons activator right">open_in_new</i></span>
+    </div>
+    <div class="col s12">
+        <div class="row">
+            {{!-- <div class="col s1 m3 l2"></div> --}}
+            <div id="savedCont" class="col s12">
+                {{#each recipes}}
+                {{#if isMine}}
+                <div class="card container">
+                    <div class="card-content titleNbtn">
+                        <div>
+                            <span id="recipeTitle"
+                                class=" recipeTitle card-title activator grey-text text-darken-4">{{title}}<i
+                                    class="material-icons activator right">open_in_new</i></span>
 
-                                                </div>
-
-                                        </div>
-                                        <br>
-                                        <br>
-                                        <hr>
-                                        <div class="card-content titleNbtn">
-                                                <div>
-                                                        <span id="recipeUrl" class="card-title grey-text text-darken-4">
-                                                                <a href="{{url}}">Link to recipe website</a></span>
-                                                </div>
-                                                <div>
-                                                        <button id="delete"
-                                                                class="deleteRecipe btn waves-effect waves-light btn-flat"
-                                                                data-id="{{this.id}}">
-                                                                <i class="material-icons">delete</i></button>
-                                                </div>
-                                        </div>
-
-                                        <div class="card-reveal">
-                                                <span class="recipeTitle card-title grey-text text-darken-4">{{title}}<i
-                                                                class="material-icons right">close</i></span>
-                                                <h5>Summary</h5>
-                                                <p id="recipeSum">{{summary}}</p>
-                                                <h5>Ingredients</h5>
-                                                <p class="recipeIngr">{{ingredients}}</p>
-                                                <h5>Instructions</h5>
-                                                <p id="recipeInst">{{instructions}}</p>
-                                        </div>
-                                </div>
-                                {{/if}}
-                                {{/each}}
                         </div>
-                        {{!-- <div class="col s1 m3 l2"></div> --}}
+
+                    </div>
+                    <br>
+                    <br>
+                    <hr>
+                    <div class="card-content titleNbtn">
+                        <div>
+                            <span id="recipeUrl" class="card-title grey-text text-darken-4">
+                                <a href="{{url}}">Link to recipe website</a></span>
+                        </div>
+                        <div>
+                            <button id="sms" class="shopping-list modal-trigger btn waves-effect waves-light btn-flat"
+                                data-target="modalIngr" data-id="{{title}} |{{ingredients}}" value="{{title}} |{{ingredients}}">
+                                <i class="material-icons">message</i>
+                        </div>
+                        <div>
+                            <button id="delete" class="deleteRecipe btn waves-effect waves-light btn-flat"
+                                data-id="{{this.id}}">
+                                <i class="material-icons">delete</i></button>
+                        </div>
+                    </div>
+
+                    <div class="card-reveal">
+                        <span class="recipeTitle card-title grey-text text-darken-4">{{title}}<i
+                                class="material-icons right">close</i></span>
+                        <h5>Summary</h5>
+                        <p id="recipeSum">{{summary}}</p>
+                        <h5>Ingredients</h5>
+                        <p class="recipeIngr">{{ingredients}}</p>
+                        <h5>Instructions</h5>
+                        <p id="recipeInst">{{instructions}}</p>
+                    </div>
                 </div>
+                {{/if}}
+                {{/each}}
+            </div>
+            {{!-- <div class="col s1 m3 l2"></div> --}}
         </div>
+    </div>
 
 </div>
 
 <footer>
-        <div class="row container center">
-                <div class="col s12">
-                        <p>&copy;Check It Out</p>
-                </div>
+    <div class="row container center">
+        <div class="col s12">
+            <p>&copy;Check It Out</p>
         </div>
+    </div>
 
 </footer>
+
+<div id="modalIngr" class="modal">
+    <div class="modal-content">
+            <span class="letter" style="color:#228B22">C</span>
+            <span class="letter" style="color:#FFA500">H</span>
+            <span class="letter" style="color:#00BFFF">E</span>
+            <span class="letter" style="color:#9932CC">C</span>
+            <span class="letter" style="color:#FFFF00">K</span>
+            <span class="letter" style="color:#FF0000">-</span>
+            <span class="letter" style="color:#228B22">Y</span>
+            <span class="letter" style="color:#00BFFF">O</span>
+            <span class="letter" style="color:#9932CC">U</span>
+            <span class="letter" style="color:#FFA500">R</span>
+            <span class="letter" style="color:#228B22">-</span>
+            <span class="letter" style="color:#FFA500">T</span>
+            <span class="letter" style="color:#00BFFF">E</span>
+            <span class="letter" style="color:#9932CC">X</span>
+            <span class="letter" style="color:#FFFF00">T</span>
+            <span class="letter" style="color:#FF0000">!</span>
+    </div>
+    <div class="row">
+        <div class="col s12">
+            <h5>Please insert a valid phone number below:</h5> +1
+            <div class="input-field inline">
+                <input id="email_inline" type="tel" class="validate">
+                <label for="email_inline">Phone Number</label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer" id="modalIngr-footer">
+        <button id="send-sms" class="waves-effect waves-green btn-flat">Send!</button>
+    </div>
+</div>

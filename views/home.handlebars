@@ -53,13 +53,13 @@
                     <div class="card horizontal {{category}}">
                         <div class="card-stacked">
                             {{!-- <div class="card-content">
-                                
+
                             </div> --}}
                             <div class="card-content">
                                 <h5>{{name}}</h6>
-                                <p>Exp: {{expiration}}</p>
-                                <br>
-                                <p>Category: {{category}}</p>
+                                    <p>Exp: {{expiration}}</p>
+                                    <br>
+                                    <p>Category: {{category}}</p>
                             </div>
                             <div class="card-action">
                                 <label>
@@ -101,7 +101,15 @@
         </div>
 
         <div id="recBtn" class="center">
-            <button id="search" class="btn waves-effect waves-light">Search</button>
+            <button id="search" class="btn waves-effect waves-light"> Search with your Ingredients </button>
+        </div>
+
+        <div id="recBtn" class="center">
+            <button id="searchName" class="btn waves-effect waves-light">Search</button>
+
+            <div class="input-field inline center">
+            <input id="text_inline" type="text" class="validate">
+        </div>
         </div>
 
         <div class="container center row">
@@ -122,6 +130,18 @@
 
     </footer>
 
+</div>
+</div>
+
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+    <div class="modal-content">
+        <h2 class="center">Saved Recipe!</h2>
+        <p class="center">Find your saved recipes in the 'recipes' tab above.</p>
+    </div>
+    <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect btn-flat">Ok</a>
+    </div>
 </div>
 
 {{/if}}

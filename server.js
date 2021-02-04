@@ -50,6 +50,9 @@ app.use("/api/spoonacular",spoonacularRoutes);
 const recipeRoutes = require("./controllers/recipeController");
 app.use("/api/recipes",recipeRoutes);
 
+const twilioRoutes = require("./controllers/twilioController");
+app.use("/api/twilio",twilioRoutes);
+
 // const categoryRoutes = require("./controllers/categoryController");
 // app.use("/api/category", categoryRoutes);
 

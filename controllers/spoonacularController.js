@@ -10,6 +10,10 @@ router.post("/", (req, res) => {
 
 })
 
+router.post("/search", (req, res)=> {
+  console.log(req.body.searchName)
+  findRecipeByName(req.body.searchName, res)
+})
 
 // async function findRecipeTest(listOfIngredients) {
 //   var options = {
@@ -58,6 +62,52 @@ function findRecipe(listOfIngredients, res) {
       const options = {
         method: 'GET',
         url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${response.data[randomNum].id}/information`,
+        headers: {
+          'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
+          'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+        }
+      };
+
+
+      listRecipes.push(axios.request(options))
+
+    }
+
+    const result = Promise.all(listRecipes)
+    result.then(response => {
+      const data = response.map(recipe=>recipe.data)
+      console.log(`data for recipes ${data}`)
+      listRecipes = [];
+      res.json(data);
+    }).catch(error => console.log(error));
+
+  })
+}
+
+
+function findRecipeByName(name, res) {
+  var options = {
+    method: 'GET',
+    url: 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/search',
+    params: {
+      query: name,
+      number: '20',
+    },
+    headers: {
+      'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
+      'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
+    }
+  };
+
+  axios.request(options).then(function (response) {
+    console.log("where does this log")
+    console.log(response.data.results[0]);
+
+    for (let i = 0; i < 10; i++) {
+
+      const options = {
+        method: 'GET',
+        url: `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${response.data.results[i].id}/information`,
         headers: {
           'x-rapidapi-key': process.env.X_RAPIDAPI_KEY,
           'x-rapidapi-host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com'
