@@ -23,7 +23,9 @@ Navigate to the bottom of the page and click "search" with your desired items se
 
 ![CYF Home Page](assets\login-page.png)
 
-![CYF Recipe Page](assets\recipe-page.png)
+![CYF Recipe Search Page](assets\search-results.png)
+
+![CYF Recipe Page]()
 
 ## Built with
 
@@ -41,5 +43,3 @@ CSS framework
 * Ashley Eubank
 * Beth Fulcher
 * Nolan Stucky
-
-
