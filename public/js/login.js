@@ -201,7 +201,7 @@ $(document).ready(function () {
 
     $("#search").on("click", function () {
         const food = [];
-
+        $("#recipe-area").empty();
         $.each($("input[name='food']:checked"), function () {
 
             food.push($(this).val());
@@ -216,7 +216,6 @@ $(document).ready(function () {
 
         })
 
-        $("#recipeTitle").text(`TEST`)
         console.log(food);
     })
 
