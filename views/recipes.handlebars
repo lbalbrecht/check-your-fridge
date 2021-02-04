@@ -1,5 +1,5 @@
 <div class="row groceries">
-        <div class="col 12">
+        <div id="savedAbc" class="col 12">
                 <div class="center">
                         <span class="letter" style="color:#228B22">M</span>
                         <span class="letter" style="color:#FFA500">Y</span>
@@ -15,20 +15,36 @@
         </div>
         <div class="col s12">
                 <div class="row">
-                        <div class="col s2"></div>
-                        <div class="col s8">
+                        {{!-- <div class="col s1 m3 l2"></div> --}}
+                        <div id="savedCont" class="col s12">
                                 {{#each recipes}}
                                 {{#if isMine}}
-                                <div id="recipeCard" class="card">
-                                        <div class="card-content">
-                                                <span id="recipeTitle"
-                                                        class=" recipeTitle card-title activator grey-text text-darken-4">{{title}}</span>
+                                <div class="card container">
+                                        <div class="card-content titleNbtn">
+                                                <div>
+                                                        <span id="recipeTitle"
+                                                                class=" recipeTitle card-title activator grey-text text-darken-4">{{title}}<i
+                                                                        class="material-icons activator right">open_in_new</i></span>
+
+                                                </div>
+
                                         </div>
-                                        <div class="card-content">
-                                                <span id="recipeUrl"
-                                                        class="card-title grey-text text-darken-4"><a href="{{url}}">Link to recipe website</a><i
-                                                                class="material-icons activator right">more_vert</i></span>
+                                        <br>
+                                        <br>
+                                        <hr>
+                                        <div class="card-content titleNbtn">
+                                                <div>
+                                                        <span id="recipeUrl" class="card-title grey-text text-darken-4">
+                                                                <a href="{{url}}">Link to recipe website</a></span>
+                                                </div>
+                                                <div>
+                                                        <button id="delete"
+                                                                class="deleteRecipe btn waves-effect waves-light btn-flat"
+                                                                data-id="{{this.id}}">
+                                                                <i class="material-icons">delete</i></button>
+                                                </div>
                                         </div>
+
                                         <div class="card-reveal">
                                                 <span class="recipeTitle card-title grey-text text-darken-4">{{title}}<i
                                                                 class="material-icons right">close</i></span>
@@ -38,17 +54,12 @@
                                                 <p class="recipeIngr">{{ingredients}}</p>
                                                 <h5>Instructions</h5>
                                                 <p id="recipeInst">{{instructions}}</p>
-                                                <div class="card-action btn-card">
-                                                        <button id="save"
-                                                                class="deleteRecipe btn waves-effect waves-light btn-flat"
-                                                                data-id="{{this.id}}">
-                                                                <i class="material-icons">delete</i></button>
-                                                </div>
                                         </div>
                                 </div>
                                 {{/if}}
                                 {{/each}}
                         </div>
+                        {{!-- <div class="col s1 m3 l2"></div> --}}
                 </div>
         </div>
 
@@ -57,23 +68,8 @@
 <footer>
         <div class="row container center">
                 <div class="col s12">
-                        <p>&copy;CheckItOut</p>
+                        <p>&copy;Check It Out</p>
                 </div>
         </div>
 
 </footer>
-
-{{!-- <h2>recipes</h2>
-
-{{#each recipes}}
-{{#if isMine}}
-<h4>{{title}}</h4>
-<p>You can find this recipe at: {{url}}</p>
-<p>{{summary}}</p>
-<p>Instruction: {{instructions}}</p>
-<p>Ingredients: {{ingredients}}</p>
-
-<button class="deleteRecipe btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
-                class="material-icons">delete</i></button>
-{{/if}}
-{{/each}} --}}
