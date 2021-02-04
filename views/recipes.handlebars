@@ -1,40 +1,14 @@
- <header>
-        <h1 class="center">Check Your Fridge</h1>
-    </header>
-
-    <!-- navbar at top of screen -->
-    <nav>
-        <div class="nav-wrapper">
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="left hide-on-med-and-down">
-                <li><a class="large" href="/home">home</a></li>
-                <li class="active"><a class="large" href="/add">add</a></li>
-                <li><a class="large" href="/search">search</a></li>
-                <li><a class="large" href="/recipes">recipes</a></li>
-            </ul>
-            <ul class="right">
-                <li><a class="large" href="/login">login</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- when screen gets to be tablet size or below, this navbar will show on side -->
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="/home">home</a></li>
-        <li><a href="/add">add</a></li>
-        <li><a href="/search">search</a></li>
-        <li class="active"><a href="/recipes">recipes</a></li>
-    </ul>
-
 <h2>recipes</h2>
 
-{{#each recipe}}
+{{#each recipes}}
+{{#if isMine}}
 <h4>{{title}}</h4>
 <p>You can find this recipe at: {{url}}</p>
 <p>{{summary}}</p>
 <p>Instruction: {{instructions}}</p>
 <p>Ingredients: {{ingredients}}</p>
+
+<button class="deleteRecipe btn waves-effect waves-light btn-flat" data-id="{{this.id}}"><i
+        class="material-icons">delete</i></button>
+{{/if}}
 {{/each}}
-
-
-

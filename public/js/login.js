@@ -81,37 +81,37 @@ $(document).ready(function () {
             url: $(`#recipeUrl${document.activeElement.id}`).text(),
             summary: $(`#recipeSum${document.activeElement.id}`).text(),
             instructions: $(`#recipeInst${document.activeElement.id}`).text(),
-            ingredients: $(`#recipeInst${document.activeElement.id}`).text(),
-            userId: $(`#recipeTitle${document.activeElement.id}`).text()
+            ingredients: $(`#ingredientList${document.activeElement.id}`).text(),
         }
         console.log(newRecipe);
 
-        if (updating) {
-            newRecipe.id = recipeId;
-            // updatePost(newIngredient)
-            $.ajax({
-                method: "PUT",
-                url: "/api/recipes",
-                data: newRecipe
-            }).then(function () {
-                window.location.href = "/"
-            }).fail(err => {
-                alert("Something went wrong")
-            })
-        }
+        // if (updating) {
+        //     newRecipe.id = recipeId;
+        //     // updatePost(newIngredient)
+        //     $.ajax({
+        //         method: "PUT",
+        //         url: "/api/recipes",
+        //         data: newRecipe
+        //     }).then(function () {
+        //         window.location.href = "/"
+        //     }).fail(err => {
+        //         alert("Something went wrong")
+        //     })
+        // }
 
-        else {
+        // else {
 
             $.post("/api/recipes", newRecipe).then(data => {
-                window.location.href = "/"
+                // window.location.href = "/"
+                alert("saved recipe!")
             }).fail(err => {
                 alert("Something went wrong")
                 // console.log(err)
             })
-        }
+        // }
     })
 
-
+    //delete button for ingredients
     $(".delete").on("click", function () {
         const id = $(this).data("id");
         console.log(id)
@@ -119,6 +119,20 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(data => {
             window.location.href = "/"
+        }).fail(err => {
+            alert("Something went wrong")
+            // console.log(err)
+        })
+    })
+
+    //delete button for recipe
+    $(".deleteRecipe").on("click", function () {
+        const id = $(this).data("id");
+        console.log(id)
+        $.post("/api/recipes/delete/" + id, {
+            type: "DELETE"
+        }).then(data => {
+            window.location.href = "/recipes"
         }).fail(err => {
             alert("Something went wrong")
             // console.log(err)
