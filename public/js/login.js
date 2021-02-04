@@ -113,7 +113,7 @@ $(document).ready(function () {
         // }
     })
 
-
+    //delete button for ingredients
     $(".delete").on("click", function () {
         const id = $(this).data("id");
         console.log(id)
@@ -121,6 +121,20 @@ $(document).ready(function () {
             type: "DELETE"
         }).then(data => {
             window.location.href = "/"
+        }).fail(err => {
+            alert("Something went wrong")
+            // console.log(err)
+        })
+    })
+
+    //delete button for recipe
+    $(".deleteRecipe").on("click", function () {
+        const id = $(this).data("id");
+        console.log(id)
+        $.post("/api/recipes/delete/" + id, {
+            type: "DELETE"
+        }).then(data => {
+            window.location.href = "/recipes"
         }).fail(err => {
             alert("Something went wrong")
             // console.log(err)
@@ -189,6 +203,7 @@ $(document).ready(function () {
 
     $("#search").on("click", function () {
         const food = [];
+        $("#recipe-area").empty();
 
         $.each($("input[name='food']:checked"), function () {
 
@@ -230,21 +245,32 @@ $(document).ready(function () {
 
             let recipeCard = $("<div/>", { class: "card", "id": `recipeCard${i}` })
             let divRecipe = $("<div/>", { class: "card-action", "id": `recipeDiv${i}` });
+            let divImage = $("<div/>", {class: "card-image", "id": `divImage${i}`});
 
+            let recipeImage = $("<img/>", {src: `${data[i].image}`, id: `recipeImage${i}`});
+            recipeImage.append(data[i].image);
             let recipeTitle = $("<p/>", { class: "card-title", "id": `recipeTitle${i}` });
             recipeTitle.text(data[i].title);
-            let recipeUrl = $("<p/>", { id: `recipeUrl${i}` })
+            // let urlId = $(`recipeUrl${i}`)
+            // urlId.append(data[i].sourceUrl)
+            // let recipeUrl = $("<a/>", { href: `${data[i].sourceUrl}`, id: urlId })
+            // recipeUrl.text("Link to recipe website")
+            let recipeUrl = $("<a/>", { href: `${data[i].sourceUrl}`, id: `recipeUrl${i}`, class: "card-url" })
             recipeUrl.append(data[i].sourceUrl)
+            let sumHead = $("<h5/>").text("Summary")
             let recipeSum = $("<p/>", { id: `recipeSum${i}` })
             recipeSum.append(data[i].summary)
+            let instHead = $("<h5/>").text("Instructions")
             let recipeInst = $("<p/>", { id: `recipeInst${i}` })
             recipeInst.append(data[i].instructions)
+            let ingrHead = $("<h5/>").text("Ingredients")
             let ingredientList = $("<p/>", { id: `ingredientList${i}` })
             ingredientList.append(ingredients)
             $('#recipe-area').append(recipeCard)
-            $(`#recipeCard${i}`).append(divRecipe);
-            
-            $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, recipeSum, recipeInst, ingredientList, saveButton)
+            $(`#recipeCard${i}`).append(divImage, divRecipe);
+
+            $(`#divImage${i}`).append(recipeImage)
+            $(`#recipeDiv${i}`).append(recipeTitle, recipeUrl, sumHead, recipeSum, ingrHead, ingredientList, instHead, recipeInst, saveButton)
             // for (let i = 0; i < ingredients.length; i++) {
                 //     console.log("inside for loop" + ingredients)
                 //     let recipeIngr = $("<li/>", {id:`recipeIngr${i}`})
