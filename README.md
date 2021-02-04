@@ -25,7 +25,7 @@ Navigate to the bottom of the page and click "search" with your desired items se
 
 ![CYF Recipe Search Page](assets\search-results.png)
 
-![CYF Recipe Page]()
+![CYF Recipe Page](assets\recipe.png)
 
 ## Built with
 
