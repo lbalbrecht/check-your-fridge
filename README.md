@@ -8,7 +8,7 @@ Cooking is not always easy; for many of us who lead busy lives, it can be a chal
 
 Check Your Fridge creates a database of food that you have in your fridge. Using Spoonacular API, you can find recipes that use specific ingredients to help you use your food before it expires
 
-[deployed on Heroku](https://check-your-fridge.herokuapp.com/)
+[deployed on Heroku](https://cryptic-shore-39350.herokuapp.com/)
 
 ## Usage
 
