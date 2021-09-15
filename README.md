@@ -2,7 +2,7 @@
 
 ## Description
 
-Bootcamp project 2: a comprehensive food catalogue for consumer use
+A comprehensive food catalogue for consumer use
 
 Cooking is not always easy; for many of us who lead busy lives, it can be a challenge to use the food in the fridge before it expires. Whether it's because of a time constraint or a lack of motivation, the process of cooking a meal can be a hassle. This can lead to unnecessary food waste as well as money wasted on food that goes uneaten.
 
